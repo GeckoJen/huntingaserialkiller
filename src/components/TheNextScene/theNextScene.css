@@ -1,0 +1,123 @@
+.houseCodePad {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+    justify-content: center; */
+  width: 30%;
+  margin: 0 auto;
+  background-color: rgb(228, 227, 227);
+  background-image: url("../../images/puzzleboxbackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.houseCodePadRow0,
+.houseCodePadRow1,
+.houseCodePadRow2,
+.houseCodePadRow3,
+.houseCodePadRow4 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.attempt,
+.attemptMade,
+.attemptCorrect,
+.attemptIncorrect {
+  width: 4%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+
+  margin: 0.1rem 0.2rem;
+}
+
+.attempt {
+  background-color: rgb(59, 58, 58);
+}
+
+.attemptMade {
+  background-color: orange;
+}
+
+.attemptCorrect {
+  background-color: rgb(3, 249, 3);
+}
+
+.attemptIncorrect {
+  background-color: red;
+}
+
+.houseCodeNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28%;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border: 1px groove black;
+  background-image: linear-gradient(
+    120deg,
+    rgb(228, 227, 227),
+    rgb(164, 164, 164),
+    rgb(237, 236, 236)
+  );
+  font-size: 3rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+  cursor: pointer;
+  box-shadow: 2px 4px #999;
+}
+
+.houseCodeNumber:active,
+.houseCodeEnter:active,
+.houseCodeClear:active {
+  box-shadow: 1px 3px #666;
+  transform: translateY(2px);
+}
+
+.houseCodeEnter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56%;
+  aspect-ratio: 2/1;
+  background-color: white;
+  border: 1px groove black;
+  background-image: linear-gradient(
+    120deg,
+    rgb(228, 227, 227),
+    rgb(164, 164, 164),
+    rgb(237, 236, 236)
+  );
+  font-size: 2rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+  cursor: pointer;
+  box-shadow: 2px 4px #999;
+}
+
+.houseCodeClear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28%;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border: 1px groove black;
+  background-image: linear-gradient(
+    120deg,
+    rgb(228, 227, 227),
+    rgb(164, 164, 164),
+    rgb(237, 236, 236)
+  );
+  font-size: 1rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+  cursor: pointer;
+  box-shadow: 2px 4px #999;
+}

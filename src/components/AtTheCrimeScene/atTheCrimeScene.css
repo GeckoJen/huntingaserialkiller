@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+.puzzleBoxNumbers {
+  width: 70%;
+  height: 15vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding:  2rem 0;
+  justify-content: space-around;
+  background-image: url("../../images/puzzleboxbackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid black;
+}
+
+.puzzleBoxCodeTopRow,
+.puzzleBoxCodeMiddleRow,
+.puzzleBoxCodeBottomRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.2rem;
+}
+
+.puzzleBoxSquare {
+  background-color: white;
+  width: 10%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: black;
+  font-family: 'Merriweather', serif;
+}
+
+.puzzleBoxGreyCircle,
+.puzzleBoxWhiteCircle {
+  width: 3%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  /* margin: 0.2rem; */
+}
+
+.puzzleBoxGreyCircle {
+  background-color: rgb(194, 194, 194);
+   border: 1px solid rgb(184, 184, 184);
+}
+
+.puzzleBoxWhiteCircle {
+  background-color: white;
+  border: 1px solid black;
+}

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './newcase.css';
 import { useNavigate } from "react-router-dom";
 import answers from '../../answers/answers';
+import crimeScene from '../../images/crimescene.jpg'
 
 function NewCase() {
     let navigate = useNavigate();
@@ -21,7 +22,7 @@ function NewCase() {
     }
 
   return (
-    <div>
+    <div className="page">
       <h2>Hunting a Serial Killer: Part 1</h2>
       <p>
         You are a detective who has just been transferred to a new town where a
@@ -33,18 +34,21 @@ function NewCase() {
         One grim Tuesday evening, the call comes in that another body has been
         found. This is the view that greets you when you arrive at the scene.
       </p>
-      <div className="image"></div>
+      <img
+        className="puzzleImage crimeScene"
+        src={crimeScene}
+        alt="crime scene"
+      ></img>
       <form onSubmit={checkAnswer}>
-          <p className="centreText"> What's your first course of action?</p>
-      <input
-        type="text"
-        value={answer}
-        onChange={(e) => setAnswer(e.target.value)}
-        
-      />
-      <button type="submit">Submit</button>
-          <p className="centreText">{hint}</p>
-          </form>
+        <p className="centreText"> What's your first course of action?</p>
+        <input
+          type="text"
+          value={answer}
+          onChange={(e) => setAnswer(e.target.value)}
+        />
+        <p className="centreText hint">{hint}</p>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }

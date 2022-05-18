@@ -5,7 +5,9 @@ import Home from '../Home/index.js';
 import About from "../About";
 import Navbar from "../Navbar";
 import NewCase from "../NewCase";
-import AtTheCrimeScene from '../AtTheCrimeScene'
+import AtTheCrimeScene from '../AtTheCrimeScene';
+import InsideTheBox from "../InsideTheBox";
+import TheNextScene from "../TheNextScene";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="newcase" element={<NewCase />} />
-        <Route path="atthecrimescene" element={<AtTheCrimeScene/>}/>
+        <Route path="atthecrimescene" element={<AtTheCrimeScene />} />
+        <Route path="insidethebox" element={<InsideTheBox />} />
+        <Route path="thenextcrimescene" element={<TheNextScene/>}/>
       </Routes>
     </div>
   );

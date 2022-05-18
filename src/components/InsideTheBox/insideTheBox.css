@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+.boxNote {
+    background-image: url("../../images/parchmentpaperbackground.jpg");
+      background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    padding: 2rem;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid black;
+}

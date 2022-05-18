@@ -1,38 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 
 
-/* .homepage {
-    background-image: url("../../images/picfade.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-} */
 
-h1 {
-font-size: 3rem;
-}
-
-h2 {
-font-size: 2.5rem;
-
-}
-
-p {
-    
-    width: 80%;
-    margin: 1rem auto;
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 2.5rem;
-    text-align: justify;
-}
-
-button {
-    font-size: 1.3rem;
-    font-weight:600;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-     font-family: 'Fira Sans', sans-serif;
-     background-color: rgb(184, 255, 250);
-}

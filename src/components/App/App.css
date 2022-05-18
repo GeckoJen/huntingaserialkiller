@@ -3,5 +3,84 @@
 .App {
   text-align: center;
   font-family: 'Fira Sans', sans-serif;
+  background-image: url('../../images/zdenek-machacek-boCk0rIiOSw-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
+.puzzleImage {
+  max-width: 70%;
+  max-height: 90vh;
+  margin: 2rem auto;
+}
+
+.page {
+  width: 80%;
+  margin: 0 auto;
+  margin-block-end: 0;
+  min-height: 100vh;
+  /* background-color: rgba(255,255,255,0.5); */
+  background-image: linear-gradient(90deg, rgba(255,255,255,0) , rgba(255,255,255,0.8) 30% 70%, rgba(255,255,255,0));
+}
+
+h1 {
+  /* max-width: 70%; */
+font-size: 3rem;
+margin-block-start: 0;
+padding: 2rem;
+margin: 0 auto;
+}
+
+h2 {
+  max-width: 70%;
+font-size: 2.5rem;
+margin-block-start: 0;
+padding: 2rem;
+margin: 0 auto;
+
+}
+
+p {
+    
+    width: 70%;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+    text-align: justify;
+}
+
+button {
+    font-size: 1.3rem;
+    font-weight:400;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+     font-family: 'Fira Sans', sans-serif;
+     background-color: rgb(151, 0, 0);
+     color: white;
+       cursor: pointer;
+  box-shadow: 2px 4px #999;
+}
+
+button:active {
+    box-shadow: 1px 3px #666;
+  transform: translateY(2px);
+}
+
+input {
+    height: 3rem;
+    font-size: 1.5rem;
+}
+
+.centreText {
+    text-align: center;
+
+}
+
+.hint {
+  color: rgb(151, 0, 0);
+  font-size: 1rem;
+}

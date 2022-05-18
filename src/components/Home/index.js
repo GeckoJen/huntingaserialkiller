@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className='homepage'>
-      <h1>Hunting a Serial Killer</h1>
-      <h2>Part 1</h2>
+    <div className='page'>
+          <h1>Hunting a Serial Killer</h1>
+          <h2>A virtual escape room mystery in three parts</h2>
+      {/* <h2>Part 1</h2> */}
       <p>
         A serial killer is at large and the local police force is stumped.
         You've been brought in to share your expertise. But as you begin to
