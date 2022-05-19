@@ -1,0 +1,106 @@
+#magnetGameWhole {
+width: 80%;
+  /* min-height: 90vh; */
+  margin: 0 auto;
+}
+
+.middleSection {
+  display: flex;
+  align-items: center;
+   width: 100%;
+    /* min-height: 90vh; */
+}
+
+.boardRow {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  height: 3vh;
+}
+
+.board {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.boardFail {
+  box-shadow: 2px 2px 50px 15px red;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.boardWin {
+  box-shadow: 2px 2px 50px 15px green;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+
+
+.E,
+.B,
+.S,
+.X {
+  width: 5%;
+  aspect-ratio: 1/1;
+  border: 1px solid grey;
+}
+
+.E {
+  background-color: white;
+}
+
+.S {
+  background-color: rgb(154, 153, 153);
+}
+
+.B {
+  border-radius: 50%;
+  background-color: gold;
+    background-image: radial-gradient(
+    rgb(254, 252, 205),
+    rgb(248, 245, 82),
+    rgb(250, 204, 0)
+  );
+}
+
+.X {
+  background-color: black;
+  border-radius: 50%;
+}
+
+.magnetIcon {
+  width: 3rem;
+  aspect-ratio: 1/1;
+  margin: 1rem 0;
+}
+
+.middleSection {
+  display: flex;
+  align-items: center;
+}
+
+.topMagnet img {
+  transform: rotate(180deg);
+}
+
+.leftMagnet img {
+  transform: rotate(90deg);
+}
+.rightMagnet img {
+  transform: rotate(270deg);
+}
+
+#magnetGameRestartButton {
+  padding: 0.3rem;
+  margin-top: 0;
+  background-color: rgb(154, 153, 153);
+  color: black;
+  font-size: 1rem;
+}

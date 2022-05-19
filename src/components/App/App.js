@@ -8,6 +8,8 @@ import NewCase from "../NewCase";
 import AtTheCrimeScene from '../AtTheCrimeScene';
 import InsideTheBox from "../InsideTheBox";
 import TheNextScene from "../TheNextScene";
+import InsideTheHouse from "../InsideTheHouse";
+import TheNextBody from '../TheNextBody';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Route path="newcase" element={<NewCase />} />
         <Route path="atthecrimescene" element={<AtTheCrimeScene />} />
         <Route path="insidethebox" element={<InsideTheBox />} />
-        <Route path="thenextcrimescene" element={<TheNextScene/>}/>
+        <Route path="thenextcrimescene" element={<TheNextScene />} />
+        <Route path="insidethehouse" element={<InsideTheHouse />} />
+        <Route path="thenextbody" element={<TheNextBody/>}/>
       </Routes>
     </div>
   );

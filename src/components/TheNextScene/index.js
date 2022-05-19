@@ -196,7 +196,7 @@ function TheNextScene() {
       </div>
 
       <p className="centreText hint">{hint}</p>
-      <p className="centreText">
+      <p >
         {" "}
         What code do you need to put in to gain access to the house? Insert the
         code into the panel above and then press enter.
