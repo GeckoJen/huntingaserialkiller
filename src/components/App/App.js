@@ -1,18 +1,17 @@
 
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import './App.css';
 import Home from '../Home/index.js';
-import About from "../About";
-import Navbar from "../Navbar";
-import NewCase from "../NewCase";
-import AtTheCrimeScene from '../AtTheCrimeScene';
-import InsideTheBox from "../InsideTheBox";
-import TheNextScene from "../TheNextScene";
-import InsideTheHouse from "../InsideTheHouse";
-import TheNextBody from '../TheNextBody';
-import GoingHome from "../GoingHome";
-import CodeKiller from "../CodeKiller";
-import TheEnd from "../TheEnd";
+// import Navbar from "../Navbar";
+import NewCase from "../Part1/NewCase";
+import AtTheCrimeScene from '../Part1/AtTheCrimeScene';
+import InsideTheBox from "../Part1/InsideTheBox";
+import TheNextScene from "../Part1/TheNextScene";
+import InsideTheHouse from "../Part1/InsideTheHouse";
+import TheNextBody from '../Part1/TheNextBody';
+import GoingHome from "../Part1/GoingHome";
+import CodeKiller from "../Part1/CodeKiller";
+import TheEnd from "../Part1/TheEnd";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
         <Route path="newcase" element={<NewCase />} />
         <Route path="atthecrimescene" element={<AtTheCrimeScene />} />
         <Route path="insidethebox" element={<InsideTheBox />} />

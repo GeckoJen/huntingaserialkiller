@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import puzzleBox from "../../images/arkstreet.png";
+import puzzleBox from "../../../images/arkstreet.png";
 import "./theNextScene.css";
-import answers from "../../answers/answers";
+import answers from "../../../answers/answers";
 import { useNavigate } from "react-router-dom";
 
 function TheNextScene() {
@@ -56,7 +56,7 @@ function TheNextScene() {
 
   function checkAnswer(e) {
     e.preventDefault();
-    console.log(houseCode);
+  
       if (houseCode.join("") === answers.theNextScene) {
         setAttemptLights([
           "attemptCorrect",
@@ -69,7 +69,6 @@ function TheNextScene() {
           setTimeout(() => {
             navigate("../insidethehouse");  
           }, 1000)
-            console.log(true);
       } else {
           setAttemptLights([
             "attemptIncorrect",

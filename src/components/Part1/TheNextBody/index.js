@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import cipherNote from '../../images/columncipher.png';
-import answers from '../../answers/answers';
+import cipherNote from '../../../images/columncipher.png';
+import answers from '../../../answers/answers';
 import { useNavigate } from "react-router-dom";
 
 function TheNextBody() {

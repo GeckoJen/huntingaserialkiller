@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import panicRoom from '../../images/panic room clues.jpg';
-import answers from '../../answers/answers';
-import arrow from '../../images/right-arrow.png'
-import dot from '../../images/black-circle.png'
+import panicRoom from '../../../images/panic room clues.jpg';
+import answers from '../../../answers/answers';
+import arrow from '../../../images/right-arrow.png'
+import dot from '../../../images/black-circle.png'
 import './codekiller.css'
 
 function CodeKiller() {
@@ -54,7 +54,6 @@ function handleClick(button) {
 
 function checkAnswer(e) {
   e.preventDefault();
-  console.log(houseCode);
   if (houseCode.join("") === answers.codeKiller) {
     setAttemptLights([
       "attemptCorrect",
@@ -66,7 +65,6 @@ function checkAnswer(e) {
     setTimeout(() => {
       navigate("../theend");
     }, 1000);
-    console.log(true);
   } else {
     setAttemptLights([
       "attemptIncorrect",

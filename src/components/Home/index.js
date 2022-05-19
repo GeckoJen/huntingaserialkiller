@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function Home() {
     window.scrollTo(0, 0);
   return (
-    <div className='page'>
-          <h1>Hunting a Serial Killer</h1>
-          <h2>A virtual escape room mystery in three parts</h2>
+    <div className="page">
+      <h1>Hunting a Serial Killer</h1>
+      <h2>A virtual escape room mystery in three parts</h2>
       {/* <h2>Part 1</h2> */}
       <p>
         A serial killer is at large and the local police force is stumped.
@@ -21,7 +21,13 @@ function Home() {
         family, unless you can stop him in time...
       </p>
       <Link to="/newcase">
-        <button>Click to begin</button>
+        <button>Part 1</button>
+      </Link>
+      <Link to="/part2">
+        <button>Part 2</button>
+      </Link>
+      <Link to="/part3">
+        <button>Part 3</button>
       </Link>
     </div>
   );

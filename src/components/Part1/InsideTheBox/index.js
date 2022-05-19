@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import answers from "../../answers/answers";
+import answers from "../../../answers/answers";
 import { useNavigate } from "react-router-dom";
 import './insideTheBox.css'
 

@@ -16,7 +16,7 @@ function TheEnd() {
       </p>
       <p className="centreText">But the Code Killer is sure to return. </p>
           <p className="centreText">Will you be able to catch him next time? </p>
-          <button>Click here to continue to Part 2</button>
+          <button>Continue to Part 2</button>
     </div>
   );
 }

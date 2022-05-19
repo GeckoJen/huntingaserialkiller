@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./magnetBoard.css";
-import magnetIcon from "../../images/magnet.png";
+import magnetIcon from "../../../images/magnet.png";
 import { useNavigate } from "react-router-dom";
 
 function MagnetBoard() {
@@ -75,7 +75,6 @@ function MagnetBoard() {
       }
     }
     const ballStartPosition = [row, column];
-    console.log({ ballStartPosition });
     return ballStartPosition;
   }
 
@@ -99,8 +98,6 @@ function MagnetBoard() {
     rowStoppers.sort((a, b) => a - b);
     columnStoppers.push(row);
     columnStoppers.sort((a, b) => a - b);
-    console.log({ rowStoppers });
-    console.log({ columnStoppers });
     return [rowStoppers, columnStoppers];
   }
 
@@ -124,16 +121,11 @@ function MagnetBoard() {
   }, [gameboard]);
 
   function magnetClick(magnet) {
-    console.log(magnet.id);
-
     const [row, column] = findBallPosition();
     const [rowStoppers, columnStoppers] = findRowAndColumnStoppers(row, column);
 
     const rowIndex = rowStoppers.findIndex((element) => element === column);
     const columnIndex = columnStoppers.findIndex((element) => element === row);
-
-    console.log({ rowIndex });
-    console.log({ columnIndex });
 
     if (magnet.id === "left" && rowIndex === 0) {
       setGameboard(losingGameBoard);

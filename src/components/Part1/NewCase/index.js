@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './newcase.css';
 import { useNavigate } from "react-router-dom";
-import answers from '../../answers/answers';
-import crimeScene from '../../images/crimescene.jpg'
+import answers from '../../../answers/answers';
+import crimeScene from '../../../images/crimescene.jpg'
 
 function NewCase() {
    useEffect(() => {

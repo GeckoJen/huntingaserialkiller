@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import puzzleBox from "../../images/puzzlebox.jpg";
+import puzzleBox from "../../../images/puzzlebox.jpg";
 import "./atTheCrimeScene.css";
-import answers from '../../answers/answers';
+import answers from '../../../answers/answers';
 import { useNavigate } from "react-router-dom";
 
 function AtTheCrimeScene() {
@@ -31,7 +31,6 @@ function AtTheCrimeScene() {
 
     function rotateDigits(button) {
         const id = Number(button.id);
-        console.log(id);
         setPuzzleBoxCode([...puzzleBoxCode.slice(0, id), (puzzleBoxCode[id]+1)%10, ...puzzleBoxCode.slice(id+1)])
     }
     

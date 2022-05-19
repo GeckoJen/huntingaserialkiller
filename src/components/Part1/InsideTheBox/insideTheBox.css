@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
 
 .boxNote {
-    background-image: url("../../images/parchmentpaperbackground.jpg");
+    background-image: url("../../../images/parchmentpaperbackground.jpg");
       background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

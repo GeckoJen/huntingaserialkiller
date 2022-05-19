@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import radioCrypticClue from '../../images/radiocrypticclue.png';
-import answers from "../../answers/answers";
+import radioCrypticClue from '../../../images/radiocrypticclue.png';
+import answers from "../../../answers/answers";
 import { useNavigate } from "react-router-dom";
 
 function GoingHome() {
