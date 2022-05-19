@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import puzzleBox from "../../images/puzzlebox.jpg";
 import "./atTheCrimeScene.css";
 import answers from '../../answers/answers';
 import { useNavigate } from "react-router-dom";
 
 function AtTheCrimeScene() {
+   
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
         let navigate = useNavigate();
 
   const [hint, setHint] = useState("");

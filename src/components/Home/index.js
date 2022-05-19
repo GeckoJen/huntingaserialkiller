@@ -3,6 +3,7 @@ import './home.css';
 import { Link } from "react-router-dom";
 
 function Home() {
+    window.scrollTo(0, 0);
   return (
     <div className='page'>
           <h1>Hunting a Serial Killer</h1>

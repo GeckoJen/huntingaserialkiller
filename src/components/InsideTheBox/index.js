@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import answers from "../../answers/answers";
 import { useNavigate } from "react-router-dom";
 import './insideTheBox.css'
 
 function InsideTheBox() {
+
+     useEffect(() => {
+       window.scrollTo(0, 0);
+     }, []);
+
     let navigate = useNavigate();
     
     const [hint, setHint] = useState("");

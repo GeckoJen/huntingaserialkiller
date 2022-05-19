@@ -10,6 +10,9 @@ import InsideTheBox from "../InsideTheBox";
 import TheNextScene from "../TheNextScene";
 import InsideTheHouse from "../InsideTheHouse";
 import TheNextBody from '../TheNextBody';
+import GoingHome from "../GoingHome";
+import CodeKiller from "../CodeKiller";
+import TheEnd from "../TheEnd";
 
 function App() {
   return (
@@ -23,7 +26,10 @@ function App() {
         <Route path="insidethebox" element={<InsideTheBox />} />
         <Route path="thenextcrimescene" element={<TheNextScene />} />
         <Route path="insidethehouse" element={<InsideTheHouse />} />
-        <Route path="thenextbody" element={<TheNextBody/>}/>
+        <Route path="thenextbody" element={<TheNextBody />} />
+        <Route path="goinghome" element={<GoingHome />} />
+        <Route path="thecodekiller" element={<CodeKiller />} />
+        <Route path="theend" element={<TheEnd/>}/>
       </Routes>
     </div>
   );

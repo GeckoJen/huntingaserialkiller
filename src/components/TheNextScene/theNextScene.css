@@ -15,11 +15,7 @@
   padding: 0.5rem;
 }
 
-.houseCodePadRow0,
-.houseCodePadRow1,
-.houseCodePadRow2,
-.houseCodePadRow3,
-.houseCodePadRow4 {
+.houseCodePadRow {
   display: flex;
   justify-content: space-evenly;
   align-items: center;

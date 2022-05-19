@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import puzzleBox from "../../images/arkstreet.png";
 import "./theNextScene.css";
 import answers from "../../answers/answers";
 import { useNavigate } from "react-router-dom";
 
 function TheNextScene() {
+ useEffect(() => {
+   window.scrollTo(0, 0);
+ }, []);
+
   let navigate = useNavigate();
 
   const [hint, setHint] = useState("");
@@ -101,7 +105,7 @@ function TheNextScene() {
         number keypad.{" "}
       </p>
       <div className="houseCodePad">
-        <div className="houseCodePadRow0">
+        <div className="houseCodePadRow">
           <div className={attemptLights[0]}></div>
           <div className={attemptLights[1]}></div>
           <div className={attemptLights[2]}></div>
@@ -109,7 +113,7 @@ function TheNextScene() {
           <div className={attemptLights[4]}></div>
           <div className={attemptLights[5]}></div>
         </div>
-        <div className="houseCodePadRow1">
+        <div className="houseCodePadRow">
           <div
             className="houseCodeNumber"
             onClick={(e) => {
@@ -135,7 +139,7 @@ function TheNextScene() {
             3
           </div>
         </div>
-        <div className="houseCodePadRow2">
+        <div className="houseCodePadRow">
           <div
             className="houseCodeNumber"
             onClick={(e) => {
@@ -161,7 +165,7 @@ function TheNextScene() {
             6
           </div>
         </div>
-        <div className="houseCodePadRow3">
+        <div className="houseCodePadRow">
           <div
             className="houseCodeNumber"
             onClick={(e) => {
@@ -187,7 +191,7 @@ function TheNextScene() {
             9
           </div>
         </div>
-        <div className="houseCodePadRow4">
+        <div className="houseCodePadRow">
           <div className="houseCodeEnter" onClick={checkAnswer}>
             ENTER
                   </div>

@@ -1,0 +1,34 @@
+.arrow  {
+    width: 25%;
+}
+
+.dot {
+    width: 10%;
+    margin: 7.5%;
+}
+
+.no2arrow {
+    transform: rotate(270deg);
+}
+
+.no4arrow {
+    transform: rotate(180deg);
+}
+
+.no8arrow {
+    transform: rotate(90deg);
+}
+
+.panicRoomKey {
+    display: flex;
+    flex-direction: column;
+}
+
+.keySpacer {
+    width: 25%;
+    aspect-ratio: 1/1;
+}
+
+.filler {
+    height: 2rem;
+}
