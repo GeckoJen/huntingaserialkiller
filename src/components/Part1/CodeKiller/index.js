@@ -6,10 +6,12 @@ import arrow from '../../../images/right-arrow.png'
 import dot from '../../../images/black-circle.png'
 import './codekiller.css'
 
-function CodeKiller() {
+function CodeKiller({moveOnStoryPart, changePart}) {
 
  useEffect(() => {
    window.scrollTo(0, 0);
+   moveOnStoryPart(window.location.pathname);
+   changePart("Part 1");
  }, []);
 
 let navigate = useNavigate();

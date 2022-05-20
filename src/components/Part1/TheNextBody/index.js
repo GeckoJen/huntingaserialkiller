@@ -3,10 +3,12 @@ import cipherNote from '../../../images/columncipher.png';
 import answers from '../../../answers/answers';
 import { useNavigate } from "react-router-dom";
 
-function TheNextBody() {
+function TheNextBody({moveOnStoryPart, changePart}) {
 
      useEffect(() => {
        window.scrollTo(0, 0);
+       moveOnStoryPart(window.location.pathname);
+       changePart("Part 1");
      }, []);
 
        let navigate = useNavigate();

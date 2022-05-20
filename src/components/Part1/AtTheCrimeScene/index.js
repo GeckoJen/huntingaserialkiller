@@ -4,10 +4,12 @@ import "./atTheCrimeScene.css";
 import answers from '../../../answers/answers';
 import { useNavigate } from "react-router-dom";
 
-function AtTheCrimeScene() {
+function AtTheCrimeScene({moveOnStoryPart, changePart}) {
    
     useEffect(() => {
-        window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
+      moveOnStoryPart(window.location.pathname);
+      changePart("Part 1");
     }, [])
 
         let navigate = useNavigate();
@@ -38,7 +40,7 @@ function AtTheCrimeScene() {
     
   return (
     <div className="page">
-      <h2>At The Crime Scene</h2>
+      <h2>At the Crime Scene</h2>
       <p>
         You clap once as directed, and the sound triggers a spotlight to come
         on, illuminating a grey box on the dining table. The box appears to be

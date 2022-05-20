@@ -4,11 +4,16 @@ import { useNavigate } from "react-router-dom";
 import answers from '../../../answers/answers';
 import crimeScene from '../../../images/crimescene.jpg'
 
-function NewCase() {
+function NewCase({moveOnStoryPart, changePart}) {
    useEffect(() => {
      window.scrollTo(0, 0);
+     moveOnStoryPart(window.location.pathname);
+     changePart("Part 1");
    }, []);
-    let navigate = useNavigate();
+  
+  let navigate = useNavigate();
+  
+
 
     const [answer, setAnswer] = useState('');
     const [hint, setHint] = useState('');
@@ -26,7 +31,8 @@ function NewCase() {
 
   return (
     <div className="page">
-      <h2>Hunting a Serial Killer: Part 1</h2>
+
+      <h2>A New Case</h2>
       <p>
         You are a detective who has just been transferred to a new town where a
         serial killer is at large. Seven bodies have been found so far, and the

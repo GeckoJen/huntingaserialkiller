@@ -1,14 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './home.css';
 import { Link } from "react-router-dom";
 
-function Home() {
-    window.scrollTo(0, 0);
+function Home({changePart}) {
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        changePart('Welcome, Detective')
+    }, [])
+    
+
+
   return (
     <div className="page">
       <h1>Hunting a Serial Killer</h1>
       <h2>A virtual escape room mystery in three parts</h2>
-      {/* <h2>Part 1</h2> */}
+
       <p>
         A serial killer is at large and the local police force is stumped.
         You've been brought in to share your expertise. But as you begin to
@@ -20,14 +27,33 @@ function Home() {
         cat-and-mouse chase that might have deadly consequences for you and your
         family, unless you can stop him in time...
       </p>
+<h3>Don't refresh the page during the game or you might lose your progress</h3>
       <Link to="/newcase">
-        <button>Part 1</button>
+        <button
+          onClick={(e) => {
+            changePart(e.target.innerText);
+          }}
+        >
+          Part 1
+        </button>
       </Link>
       <Link to="/part2">
-        <button>Part 2</button>
+        <button
+          onClick={(e) => {
+            changePart(e.target.innerText);
+          }}
+        >
+          Part 2
+        </button>
       </Link>
       <Link to="/part3">
-        <button>Part 3</button>
+        <button
+          onClick={(e) => {
+            changePart(e.target.innerText);
+          }}
+        >
+          Part 3
+        </button>
       </Link>
     </div>
   );
