@@ -37,7 +37,7 @@ function Home({changePart}) {
           Part 1
         </button>
       </Link>
-      <Link to="/part2">
+      <Link to="/returnofthecodekiller">
         <button
           onClick={(e) => {
             changePart(e.target.innerText);

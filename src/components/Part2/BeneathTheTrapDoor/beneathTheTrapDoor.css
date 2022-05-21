@@ -1,0 +1,40 @@
+.triangleBoxLock {
+display: flex;
+  justify-content: space-around;
+align-items: center;
+  width: 50%;
+  height: 10vh;
+  margin: 0 auto;
+  padding:  2rem 0;
+  background-image: url("../../../images/triangleboxpuzzlebackground.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid black;
+}
+
+.triangleBoxNumber, .triangleBoxEnterButton {
+      background-color: white;
+  width: 10%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 2rem;
+  margin: 0.2rem;
+  padding: 0;
+  border-radius: 0;
+  color: black;
+border-radius: 10px;
+}
+
+.triangleBoxEnterButton {
+    width: 15%;
+    aspect-ratio: 1.5/1;
+    font-size: 1.5rem;
+}
+
+#triangleBoxImage {
+    height: 70vh;
+}

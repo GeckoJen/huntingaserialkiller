@@ -1,0 +1,77 @@
+.stageDoorLock {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(228, 227, 227);
+  background-image: url("../../../images/puzzleboxbackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 0.5rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.stageDoorBlock {
+  display: flex;
+  flex-direction: column;
+  width: 12%;
+}
+
+.stageDoorDown {
+  transform: rotate(180deg);
+}
+
+
+
+.stageDoorUp,
+.stageDoorLetter,
+.stageDoorDown {
+  background-color: white;
+  margin: 0.2rem;
+  border: 1px groove black;
+  background-image: linear-gradient(
+    120deg,
+    rgb(228, 227, 227),
+    rgb(164, 164, 164),
+    rgb(237, 236, 236)
+  );
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  cursor: pointer;
+  box-shadow: 2px 4px #999;
+}
+
+.stageDoorLetter {
+    cursor:auto;
+    aspect-ratio: 1/1.5;
+}
+
+.stageDoorUp,
+.stageDoorDown {
+  aspect-ratio: 3/1;
+}
+
+.stageDoorUp:active {
+  box-shadow: 1px 3px #666;
+  transform: translateY(2px);
+}
+
+.stageDoorDown:active {
+  box-shadow: 1px 3px #666;
+  transform: translateY(2px) rotate(180deg);
+}
+
+.stageDoorEnter {
+  background-image: linear-gradient(
+    120deg,
+    rgb(228, 227, 227),
+    rgb(164, 164, 164),
+    rgb(237, 236, 236)
+  );
+  color: black;
+}

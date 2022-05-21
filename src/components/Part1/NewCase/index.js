@@ -5,7 +5,8 @@ import answers from '../../../answers/answers';
 import crimeScene from '../../../images/crimescene.jpg'
 
 function NewCase({moveOnStoryPart, changePart}) {
-   useEffect(() => {
+   
+  useEffect(() => {
      window.scrollTo(0, 0);
      moveOnStoryPart(window.location.pathname);
      changePart("Part 1");
@@ -32,7 +33,7 @@ function NewCase({moveOnStoryPart, changePart}) {
   return (
     <div className="page">
 
-      <h2>A New Case</h2>
+      <h2>Part 1: A New Case</h2>
       <p>
         You are a detective who has just been transferred to a new town where a
         serial killer is at large. Seven bodies have been found so far, and the
