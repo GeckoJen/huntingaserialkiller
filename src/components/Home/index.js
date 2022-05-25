@@ -1,15 +1,38 @@
 import React, {useEffect} from 'react';
 import './home.css';
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
-function Home({changePart}) {
+function Home({changePart, url}) {
     
     useEffect(() => {
         window.scrollTo(0, 0);
-        changePart('Welcome, Detective')
+      changePart('Welcome, Detective')
+      if (!localStorage.userId) {
+        const id = uuidv4();
+        localStorage.setItem("userId", id);
+       
+      }
+      createUser();
+      console.log(localStorage);
     }, [])
-    
+  
+  
+  async function createUser() {
+    const data = {userId: localStorage.getItem("userId")}
+    const response = await fetch(url,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    return response.json();
+  }
 
+  
 
   return (
     <div className="page">
@@ -27,7 +50,7 @@ function Home({changePart}) {
         cat-and-mouse chase that might have deadly consequences for you and your
         family, unless you can stop him in time...
       </p>
-<h3>Don't refresh the page during the game or you might lose your progress</h3>
+
       <Link to="/newcase">
         <button
           onClick={(e) => {

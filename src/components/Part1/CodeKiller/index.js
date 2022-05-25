@@ -6,83 +6,78 @@ import arrow from '../../../images/right-arrow.png'
 import dot from '../../../images/black-circle.png'
 import './codekiller.css'
 
-function CodeKiller({moveOnStoryPart, changePart}) {
+function CodeKiller({ moveOnStoryPart, changePart, updateUser }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    moveOnStoryPart(window.location.pathname);
+    changePart("Part 1");
+  }, []);
 
- useEffect(() => {
-   window.scrollTo(0, 0);
-   moveOnStoryPart(window.location.pathname);
-   changePart("Part 1");
- }, []);
+  let navigate = useNavigate();
 
-let navigate = useNavigate();
+  const [hint, setHint] = useState("");
 
-const [hint, setHint] = useState("");
-
-const [houseCode, setHouseCode] = useState([]);
-const [attemptLights, setAttemptLights] = useState([
-  "attempt",
-  "attempt",
-  "attempt",
-  "attempt",
-]);
-
-function clearAnswer() {
-  setHouseCode([]);
-  setAttemptLights([
+  const [houseCode, setHouseCode] = useState([]);
+  const [attemptLights, setAttemptLights] = useState([
     "attempt",
     "attempt",
     "attempt",
     "attempt",
   ]);
-}
 
-function handleClick(button) {
-  const index = attemptLights.findIndex((element) => {
-    return element === "attempt";
-  });
-
-  if (index === -1) {
-    clearAnswer();
-  } else {
-    setAttemptLights([
-      ...attemptLights.slice(0, index),
-      "attemptMade",
-      ...attemptLights.slice(index + 1),
-    ]);
-    const newDigit = button.innerText;
-    setHouseCode([...houseCode, newDigit]);
+  function clearAnswer() {
+    setHouseCode([]);
+    setAttemptLights(["attempt", "attempt", "attempt", "attempt"]);
   }
-}
 
-function checkAnswer(e) {
-  e.preventDefault();
-  if (houseCode.join("") === answers.codeKiller) {
-    setAttemptLights([
-      "attemptCorrect",
-      "attemptCorrect",
-      "attemptCorrect",
-      "attemptCorrect",
+  function handleClick(button) {
+    const index = attemptLights.findIndex((element) => {
+      return element === "attempt";
+    });
 
-    ]);
-    setTimeout(() => {
-      navigate("../theend");
-    }, 1000);
-  } else {
-    setAttemptLights([
-      "attemptIncorrect",
-      "attemptIncorrect",
-      "attemptIncorrect",
-      "attemptIncorrect",
-
-    ]);
-    setHint("Nope, that's not correct, try again!");
-    setTimeout(() => {
-      setHint("");
+    if (index === -1) {
       clearAnswer();
-    }, 2000);
+    } else {
+      setAttemptLights([
+        ...attemptLights.slice(0, index),
+        "attemptMade",
+        ...attemptLights.slice(index + 1),
+      ]);
+      const newDigit = button.innerText;
+      setHouseCode([...houseCode, newDigit]);
+    }
   }
-}
 
+  function checkAnswer(e) {
+    e.preventDefault();
+    if (houseCode.join("") === answers.codeKiller) {
+      setAttemptLights([
+        "attemptCorrect",
+        "attemptCorrect",
+        "attemptCorrect",
+        "attemptCorrect",
+      ]);
+      const currentDate = new Date();
+      const endtimeTimeStamp = currentDate.getTime();
+      console.log({ endtimeTimeStamp });
+      updateUser("end_time", endtimeTimeStamp);
+      setTimeout(() => {
+        navigate("../theend");
+      }, 1000);
+    } else {
+      setAttemptLights([
+        "attemptIncorrect",
+        "attemptIncorrect",
+        "attemptIncorrect",
+        "attemptIncorrect",
+      ]);
+      setHint("Nope, that's not correct, try again!");
+      setTimeout(() => {
+        setHint("");
+        clearAnswer();
+      }, 2000);
+    }
+  }
 
   return (
     <div className="page">
@@ -241,8 +236,8 @@ function checkAnswer(e) {
             CLEAR
           </div>
         </div>
-          </div>
-          <p className='filler'></p>
+      </div>
+      <p className="filler"></p>
     </div>
   );
 }

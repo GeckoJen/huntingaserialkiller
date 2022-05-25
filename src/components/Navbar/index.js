@@ -85,9 +85,9 @@ function Navbar({
         <Link to="/hints">
           <button className="navbarButton">Hints</button>{" "}
         </Link>
-        <Link to={latestPage}>
+        {/* <Link to={latestPage}>
           <button className="navbarButton">Current puzzle</button>{" "}
-        </Link>
+        </Link> */}
       </nav>
     </div>
   );

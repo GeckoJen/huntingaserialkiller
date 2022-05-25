@@ -20,10 +20,14 @@ import BeneathTheTrapDoor from "../Part2/BeneathTheTrapDoor";
 import TheBoxOpens from "../Part2/TheBoxOpens";
 
 function App() {
-  const [part, setPart] = useState("Welcome, Detective");
-  const [hintsUsed, setHintsUsed] = useState({ Nudge: 0, Help: 0, Answer: 0 });
 
-  const [storyPartReachedPart1, setStoryPartReachedPart1] = useState({
+
+  // const url = `http://localhost:3000/codekiller`;
+  const url = `https://escaperoomsdata.herokuapp.com/codekiller`;
+
+  const [part, setPart] = useState("Welcome, Detective");
+ 
+  const initialStoryPartReachedPart1 = {
     newcase: false,
     atthecrimescene: false,
     insidethebox: false,
@@ -32,7 +36,9 @@ function App() {
     thenextbody: false,
     goinghome: false,
     thecodekiller: false,
-  });
+  }
+
+  const [storyPartReachedPart1, setStoryPartReachedPart1] = useState(initialStoryPartReachedPart1);
 
     const [storyPartReachedPart2, setStoryPartReachedPart2] = useState({
       returnofthecodekiller: false,
@@ -50,23 +56,51 @@ function App() {
     setPart(text);
   }
 
-  function recordHints(button) {
+  async function updateUser(columnName, info) {
+    const userId = localStorage.getItem("userId");
+    const data = { column: columnName, update: info };
+    const response = await fetch(`${url}/${userId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json();
+  }
+
+  async function getUserInfo() {
+    const userId = localStorage.getItem("userId");
+    const response = await fetch(`${url}/${userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+    const data = response.json();
+    return data;
+  }
+
+  async function recordHints(button) {
     if (button.disabled === false) {
-      setHintsUsed({
-        ...hintsUsed,
-        [button.innerText]: hintsUsed[button.innerText] + 1,
-      });
+      if (button.innerText === "Nudge") {
+        await updateUser("nudges", "plus 1");
+      } else if (button.innerText === "Help") {
+        await updateUser("helps", "plus 1");
+      } else if (button.innerText === "Answer") {
+        await updateUser("answers", "plus 1");
+      }
       button.nextSibling.style.display = "block";
       button.disabled = true;
     }
 
-    console.log(hintsUsed);
   }
+
 
   function moveOnStoryPart(pageName) {
     console.log(pageName)
     const pageReached = pageName.slice(1);
-    if (part === "Part 1") { setStoryPartReachedPart1({ ...storyPartReachedPart1, [pageReached]: true }); }
+    if (part === "Part 1") { setStoryPartReachedPart1({ ...initialStoryPartReachedPart1, [pageReached]: true }); }
     else if (part === "Part 2") { setStoryPartReachedPart2({ ...storyPartReachedPart2, [pageReached]: true }) }
     else if (part === "Part 3"){
       setStoryPartReachedPart3({
@@ -87,13 +121,17 @@ function App() {
       />
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home changePart={changePart} />} />
+          <Route
+            path="/"
+            element={<Home changePart={changePart} url={url} />}
+          />
           <Route
             path="newcase"
             element={
               <NewCase
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                updateUser={updateUser}
               />
             }
           />
@@ -157,12 +195,19 @@ function App() {
               <CodeKiller
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                updateUser={updateUser}
               />
             }
           />
           <Route
             path="theend"
-            element={<TheEnd hintsUsed={hintsUsed} changePart={changePart} />}
+            element={
+              <TheEnd
+              
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+              />
+            }
           />
           <Route
             path="returnofthecodekiller"

@@ -13,20 +13,27 @@ function Hints({
 }) {
   return (
     <div className="page">
-      <h2>Hints</h2>
-      <p>
-        Scroll down to find the section you need a hint for, and then select
-        what level of hint you need. Hints will only appear for sections you've
-        reached so far in the game.
+      <h1>Hints</h1>
+      <p className="centreText">
+        There are three levels of hint available for each puzzle.
       </p>
-      <h3 className="hintsH3">
+      <p className="centreText">
+        {" "}
+        Select a <strong>"nudge"</strong> for a gentle point in the right
+        direction, a <strong>"help"</strong> for a bit more guidance, and <strong>"answer"</strong> if you just want to know the answer.
+      </p>
+      <p className="centreText">
+        Click on the "go back to the puzzle" button when you are ready to carry
+        on.
+      </p>
+      {/* <h3 className="hintsH3">
         Don't refresh this page or you will lose access to the hints you've
         accumulated so far.
       </h3>
       <h3 className="hintsH3">
         If you refresh by accident, click the back button on your browser or
         select the "Home" button above and begin the escape room again.{" "}
-      </h3>
+      </h3> */}
       {part === "Part 1" && (
         <Part1Hints
           storyPartReachedPart1={storyPartReachedPart1}

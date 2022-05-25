@@ -34,7 +34,7 @@ function TheNextBody({moveOnStoryPart, changePart}) {
     <div className="page">
       <h2>The Next Body</h2>
       <p>
-        Having successfully diffused the bomb, you walk onwards towards the
+        Having successfully defused the bomb, you walk onwards towards the
         kitchen and find the body. Just above where it lies there is another
         note from the killer.
       </p>
