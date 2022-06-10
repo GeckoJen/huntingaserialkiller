@@ -6,11 +6,13 @@ import answers from '../../../answers/answers';
 import { useNavigate } from "react-router-dom";
 
 
-function BeneathTheTrapDoor({moveOnStoryPart, changePart}) {
+function BeneathTheTrapDoor({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
       useEffect(() => {
         window.scrollTo(0, 0);
         moveOnStoryPart(window.location.pathname);
         changePart("Part 2");
+            getUserInfo();
+            displayTimer(true);
       }, []);
 
       let navigate = useNavigate();
@@ -41,7 +43,7 @@ function BeneathTheTrapDoor({moveOnStoryPart, changePart}) {
       <h2>Beneath the Trap Door</h2>
       <p>
         You make your way to the main theatre auditorium and hunt on the stage
-        for a trapdoor. You find it, open it, and shine your torch down into the
+        for a trap door. You find it, open it, and shine your torch down into the
         space below.
       </p>
       <p>

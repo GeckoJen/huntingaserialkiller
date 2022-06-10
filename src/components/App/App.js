@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
+import useInterval from "../../hooks/useInterval";
 import Home from "../Home/index.js";
 import Navbar from "../Navbar";
 import NewCase from "../Part1/NewCase";
@@ -15,71 +17,96 @@ import TheEnd from "../Part1/TheEnd";
 import Hints from "../Hints";
 import ReturnOfTheCodeKiller from "../Part2/ReturnOfTheCodeKiller";
 import StageDoor from "../Part2/StageDoor";
-import InsideTheTheatre from '../Part2/InsideTheTheatre';
+import InsideTheTheatre from "../Part2/InsideTheTheatre";
 import BeneathTheTrapDoor from "../Part2/BeneathTheTrapDoor";
 import TheBoxOpens from "../Part2/TheBoxOpens";
+import FriarsRoad from "../Part2/FriarsRoad";
+import InsideFriarsRoad from "../Part2/InsideFriarsRoad";
+import InTheLivingRoom from "../Part2/InTheLivingRoom";
+import InTheGarden from "../Part2/InTheGarden";
+
+import ExaminingTheBody from "../Part2/ExaminingTheBody";
+import ATwistInTheTale from "../Part2/ATwistInTheTale";
+import AtTheHospital from "../Part2/AtTheHospital";
+import CodeKillerRevealed from "../Part2/CodeKillerRevealed";
+import EndOfPart2 from "../Part2/EndOfPart2";
+
 
 function App() {
-
-
   // const url = `http://localhost:3000/codekiller`;
   const url = `https://escaperoomsdata.herokuapp.com/codekiller`;
 
   const [part, setPart] = useState("Welcome, Detective");
- 
-  const initialStoryPartReachedPart1 = {
-    newcase: false,
-    atthecrimescene: false,
-    insidethebox: false,
-    thenextcrimescene: false,
-    insidethehouse: false,
-    thenextbody: false,
-    goinghome: false,
-    thecodekiller: false,
-  }
-
-  const [storyPartReachedPart1, setStoryPartReachedPart1] = useState(initialStoryPartReachedPart1);
-
-    const [storyPartReachedPart2, setStoryPartReachedPart2] = useState({
-      returnofthecodekiller: false,
-      stagedoor: false,
-      insidethetheatre: false,
-      beneaththetrapdoor: false,
-    });
-  
-      const [storyPartReachedPart3, setStoryPartReachedPart3] = useState({
-        page1: false,
-        page2: false,
-      });
 
   function changePart(text) {
     setPart(text);
   }
 
+  const [startTime, setStartTime] = useState("0");
+  const [timeElapsed, setTimeElapsed] = useState("");
+
+  useInterval(function () {
+    if (startTime !== "0") {
+      const currentDate = new Date();
+      const timeNow = Number(currentDate.getTime());
+      const lengthOfTime = Math.floor((timeNow - startTime) / 1000);
+      const hours = Math.floor(lengthOfTime / 3600);
+      const minutes = Math.floor((lengthOfTime % 3600) / 60);
+      const seconds = Math.floor(lengthOfTime % 60);
+      setTimeElapsed(`${hours}h ${minutes}m ${seconds}s`);
+    }
+  }, 1000);
+
   async function updateUser(columnName, info) {
     const userId = localStorage.getItem("userId");
     const data = { column: columnName, update: info };
-    const response = await fetch(`${url}/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return response.json();
+
+    if (data.column === "start_time" && startTime === "0") {
+      const response = await fetch(`${url}/${userId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      return response.json();
+    } else if (data.column !== "start_time") {
+      const response = await fetch(`${url}/${userId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      return response.json();
+    }
   }
 
   async function getUserInfo() {
-    const userId = localStorage.getItem("userId");
-    const response = await fetch(`${url}/${userId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    });
-    const data = response.json();
-    return data;
+    if (localStorage.userId) {
+      const userId = localStorage.getItem("userId");
+      const response = await fetch(`${url}/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setStartTime(data.payload[0].start_time);
+
+      return data;
+    }
   }
+
+  const [showTimer, setShowTimer] = useState(false);
+
+  function displayTimer(value) {
+    setShowTimer(value);
+  }
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
 
   async function recordHints(button) {
     if (button.disabled === false) {
@@ -93,37 +120,85 @@ function App() {
       button.nextSibling.style.display = "block";
       button.disabled = true;
     }
-
   }
 
-
-  function moveOnStoryPart(pageName) {
-    console.log(pageName)
+  async function moveOnStoryPart(pageName) {
     const pageReached = pageName.slice(1);
-    if (part === "Part 1") { setStoryPartReachedPart1({ ...initialStoryPartReachedPart1, [pageReached]: true }); }
-    else if (part === "Part 2") { setStoryPartReachedPart2({ ...storyPartReachedPart2, [pageReached]: true }) }
-    else if (part === "Part 3"){
-      setStoryPartReachedPart3({
-        ...storyPartReachedPart3,
-        [pageReached]: true,
-      });
+    await updateUser("current_page", pageReached);
+  }
+
+  async function storePartData(partNumber) {
+    const data = await getUserInfo();
+    const userData = data.payload[0];
+    const timeColumn = `part${partNumber}_time`;
+    const hintsColumn = `part${partNumber}_hints`;
+    const timeTaken = (userData.end_time - userData.start_time) / 1000;
+    const timeInfo = `${Math.floor(timeTaken / 3600)}h ${Math.floor(
+      (timeTaken % 3600) / 60
+    )}m ${Math.floor(timeTaken % 60)}s`;
+    const hintsInfo = {
+      nudges: userData.nudges,
+      helps: userData.helps,
+      answers: userData.answers,
+    };
+    await updateUser(timeColumn, timeInfo);
+    await updateUser(hintsColumn, hintsInfo);
+  }
+
+  async function createUser() {
+    const data = { userId: localStorage.getItem("userId") };
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json();
+  }
+
+  async function resetDataForNewPart() {
+    let userId;
+    if (!localStorage.userId) {
+      userId = uuidv4();
+      localStorage.setItem("userId", userId);
+      createUser();
+    } else {
+      userId = localStorage.getItem("userId");
     }
 
+    const data = { column: "start_time", update: new Date().getTime() };
+
+    await fetch(`${url}/${userId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    await updateUser("end_time", 0);
+    await updateUser("nudges", 0);
+    await updateUser("helps", 0);
+    await updateUser("answers", 0);
   }
 
   return (
     <div>
-      <Navbar
-        part={part}
-        storyPartReachedPart1={storyPartReachedPart1}
-        storyPartReachedPart2={storyPartReachedPart2}
-        storyPartReachedPart3={storyPartReachedPart3}
-      />
+      <Navbar part={part} timeElapsed={timeElapsed} showTimer={showTimer} />
       <div className="App">
         <Routes>
           <Route
             path="/"
-            element={<Home changePart={changePart} url={url} />}
+            element={
+              <Home
+                changePart={changePart}
+                url={url}
+                updateUser={updateUser}
+                displayTimer={displayTimer}
+                createUser={createUser}
+                resetDataForNewPart={resetDataForNewPart}
+              />
+            }
           />
           <Route
             path="newcase"
@@ -131,7 +206,8 @@ function App() {
               <NewCase
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
-                updateUser={updateUser}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -141,6 +217,8 @@ function App() {
               <AtTheCrimeScene
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -150,6 +228,8 @@ function App() {
               <InsideTheBox
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -159,6 +239,8 @@ function App() {
               <TheNextScene
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -168,6 +250,8 @@ function App() {
               <InsideTheHouse
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -177,6 +261,8 @@ function App() {
               <TheNextBody
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -186,6 +272,8 @@ function App() {
               <GoingHome
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -196,6 +284,9 @@ function App() {
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
                 updateUser={updateUser}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+                storePartData={storePartData}
               />
             }
           />
@@ -203,9 +294,11 @@ function App() {
             path="theend"
             element={
               <TheEnd
-              
                 changePart={changePart}
                 getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+                storePartData={storePartData}
+                resetDataForNewPart={resetDataForNewPart}
               />
             }
           />
@@ -215,6 +308,8 @@ function App() {
               <ReturnOfTheCodeKiller
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -224,6 +319,8 @@ function App() {
               <StageDoor
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -233,6 +330,8 @@ function App() {
               <InsideTheTheatre
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -242,6 +341,8 @@ function App() {
               <BeneathTheTrapDoor
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />
@@ -251,6 +352,113 @@ function App() {
               <TheBoxOpens
                 moveOnStoryPart={moveOnStoryPart}
                 changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="friarsroad"
+            element={
+              <FriarsRoad
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="insidefriarsroad"
+            element={
+              <InsideFriarsRoad
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+
+          <Route
+            path="inthelivingroom"
+            element={
+              <InTheLivingRoom
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="inthegarden"
+            element={
+              <InTheGarden
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="examiningthebody"
+            element={
+              <ExaminingTheBody
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="atwistinthetale"
+            element={
+              <ATwistInTheTale
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="atthehospital"
+            element={
+              <AtTheHospital
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="thecodekillerrevealed"
+            element={
+              <CodeKillerRevealed
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                updateUser={updateUser}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+                storePartData={storePartData}
+              />
+            }
+          />
+
+          <Route
+            path="endofpart2"
+            element={
+              <EndOfPart2
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                updateUser={updateUser}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+                storePartData={storePartData}
               />
             }
           />
@@ -259,10 +467,8 @@ function App() {
             element={
               <Hints
                 recordHints={recordHints}
-                storyPartReachedPart1={storyPartReachedPart1}
-                storyPartReachedPart2={storyPartReachedPart2}
-                storyPartReachedPart3={storyPartReachedPart3}
-                part={part}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
               />
             }
           />

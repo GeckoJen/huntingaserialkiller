@@ -6,11 +6,20 @@ import arrow from '../../../images/right-arrow.png'
 import dot from '../../../images/black-circle.png'
 import './codekiller.css'
 
-function CodeKiller({ moveOnStoryPart, changePart, updateUser }) {
+function CodeKiller({
+  moveOnStoryPart,
+  changePart,
+  updateUser,
+  getUserInfo,
+  displayTimer,
+  storePartData
+}) {
   useEffect(() => {
     window.scrollTo(0, 0);
     moveOnStoryPart(window.location.pathname);
     changePart("Part 1");
+    getUserInfo();
+     displayTimer(true);
   }, []);
 
   let navigate = useNavigate();
@@ -48,7 +57,7 @@ function CodeKiller({ moveOnStoryPart, changePart, updateUser }) {
     }
   }
 
-  function checkAnswer(e) {
+  async function checkAnswer(e) {
     e.preventDefault();
     if (houseCode.join("") === answers.codeKiller) {
       setAttemptLights([
@@ -59,8 +68,9 @@ function CodeKiller({ moveOnStoryPart, changePart, updateUser }) {
       ]);
       const currentDate = new Date();
       const endtimeTimeStamp = currentDate.getTime();
-      console.log({ endtimeTimeStamp });
-      updateUser("end_time", endtimeTimeStamp);
+      await updateUser("end_time", endtimeTimeStamp);
+      displayTimer(false);
+      storePartData(1);
       setTimeout(() => {
         navigate("../theend");
       }, 1000);

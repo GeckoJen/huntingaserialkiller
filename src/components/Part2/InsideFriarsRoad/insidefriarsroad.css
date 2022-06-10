@@ -1,0 +1,109 @@
+.triangleSudokuPuzzle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+background-image: url("../../../images/notebackgroundpuzzle.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid grey;
+width: 70%;
+margin: 0 auto;
+padding: 2rem 0 1rem 2rem;
+box-sizing: border-box;
+}
+
+.sudokuRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+/* the triangle <img> */
+.triangle {
+  width: 100%;
+  position: relative;
+  top: 0rem;
+  left: 0;
+}
+
+/* the upTriangle <div> */
+.upTriangle {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 14%;
+  aspect-ratio: 2/1;
+  margin-left: -2rem;
+}
+
+.downTriangle {
+  position: relative;
+  top: 0;
+  left: 0;
+
+    width: 14%;
+  aspect-ratio: 2/1;
+  margin-left: -2rem;
+}
+
+
+.sudokuSymbolUp {
+  width: 35%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 45%;
+  left: 32.5%;
+}
+
+.sudokuSymbolDown {
+  width: 35%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 15%;
+  left: 32.5%;
+}
+
+.doorLockNumbers {
+  width: 40%;
+  height: 15vh;
+  margin: 0 auto;
+  display: flex;
+  padding:  2rem 1rem;
+  justify-content: space-around;
+  background-image: url("../../../images/puzzleboxbackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid black;
+}
+
+.doorLockSquare {
+  background-color: white;
+  width: 18%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  color: black;
+
+
+}
+
+.lockBar {
+  width: 20%;
+  aspect-ratio: 3/1;
+  border-top-right-radius: 5rem;
+  border-top-left-radius: 5rem;
+   border: 2rem solid rgb(189, 167, 44);
+   border-bottom: 0;
+  margin: 0 auto;
+  
+}

@@ -3,12 +3,14 @@ import answers from "../../../answers/answers";
 import { useNavigate } from "react-router-dom";
 import './insideTheBox.css'
 
-function InsideTheBox({moveOnStoryPart, changePart}) {
+function InsideTheBox({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
 
      useEffect(() => {
        window.scrollTo(0, 0);
        moveOnStoryPart(window.location.pathname);
        changePart("Part 1");
+       getUserInfo();
+       displayTimer(true);
      }, []);
 
     let navigate = useNavigate();

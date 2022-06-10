@@ -4,12 +4,14 @@ import "./atTheCrimeScene.css";
 import answers from '../../../answers/answers';
 import { useNavigate } from "react-router-dom";
 
-function AtTheCrimeScene({moveOnStoryPart, changePart}) {
+function AtTheCrimeScene({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
    
     useEffect(() => {
       window.scrollTo(0, 0);
       moveOnStoryPart(window.location.pathname);
       changePart("Part 1");
+      getUserInfo();
+      displayTimer(true);
     }, [])
 
         let navigate = useNavigate();
@@ -43,7 +45,7 @@ function AtTheCrimeScene({moveOnStoryPart, changePart}) {
       <h2>At the Crime Scene</h2>
       <p>
         You clap once as directed, and the sound triggers a spotlight to come
-        on, illuminating a grey box on the dining table. The box appears to be
+        on, illuminating a grey box hidden under the dining table. The box appears to be
         locked - it looks like you'll need to enter a 5 digit code to open it.
       </p>
 

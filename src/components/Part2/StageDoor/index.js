@@ -4,11 +4,13 @@ import stageDoor from "../../../images/graffiti wall.jpg";
 import answers from "../../../answers/answers";
 import './stageDoor.css'
 
-function StageDoor({ moveOnStoryPart, changePart }) {
+function StageDoor({ moveOnStoryPart, changePart, getUserInfo, displayTimer }) {
 useEffect(() => {
   window.scrollTo(0, 0);
   moveOnStoryPart(window.location.pathname);
   changePart("Part 2");
+      getUserInfo();
+      displayTimer(true);
 }, []);
 
 let navigate = useNavigate();
@@ -19,17 +21,15 @@ let navigate = useNavigate();
     function moveLetterUp(button) {
         let id = Number(button.id);
         let char = button.innerText.charCodeAt(0)
-        console.log(char, id)
         let newChar;
         if (char < 90) { newChar = char + 1 } else { newChar = 65 };
         setStageDoorCode([...stageDoorCode.slice(0, id), String.fromCharCode(newChar), ...stageDoorCode.slice(id + 1)])
-        console.log(stageDoorCode)
+
     }
 
     function moveLetterDown(button) {
         let id = Number(button.id);
         let char = button.innerText.charCodeAt(0);
-        console.log(char, id);
         let newChar;
         if (char >65) {
           newChar = char - 1;
@@ -41,13 +41,11 @@ let navigate = useNavigate();
           String.fromCharCode(newChar),
           ...stageDoorCode.slice(id + 1),
         ]);
-        console.log(stageDoorCode);
     }
 
 function checkAnswer(event) {
     event.preventDefault();
     if (stageDoorCode.join('') === answers.stageDoor) {
-        console.log(true)
        navigate("../insidethetheatre"); 
     }
 

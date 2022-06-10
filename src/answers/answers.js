@@ -9,7 +9,14 @@ const answers = {
   returnOfCodeKiller: "theatre",
   stageDoor: "TJSRKCHD",
   insideTheTheatre: "trapdoor",
-  beneathTheTrapdoor: '13112221'
+  beneathTheTrapdoor: "13112221",
+  theBoxOpens: "307",
+  friarsRoad: "435162158",
+  insideFriarsRoad: "24437",
+  inTheLivingRoom: "clock",
+  inTheGarden1: "GECIBDFAH",
+  inTheGarden2: "GECIHBDFA",
+  atTheHospital: "5378",
 };
 
 export default answers;

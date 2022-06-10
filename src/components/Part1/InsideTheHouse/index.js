@@ -1,12 +1,14 @@
 import React, {useEffect} from "react";
 import MagnetBoard from "../magnetBoard";
 
-function InsideTheHouse({moveOnStoryPart, changePart}) {
+function InsideTheHouse({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
 
  useEffect(() => {
    window.scrollTo(0, 0);
    moveOnStoryPart(window.location.pathname);
    changePart("Part 1");
+   getUserInfo();
+   displayTimer(true);
  }, []);
 
   return (

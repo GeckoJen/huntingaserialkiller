@@ -1,0 +1,26 @@
+.safeLockNumbers {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+    width: 70%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.safeLockSquare {
+    background-color: white;
+    color: black;
+    width: 20%;
+    aspect-ratio: 1/1;
+    font-size: 3rem;
+}
+
+.hospitalImage {
+    margin-top: 0;
+}
+
+.hospitalSafe {
+    margin-bottom: -2%;
+}

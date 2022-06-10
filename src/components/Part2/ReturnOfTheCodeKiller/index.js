@@ -3,35 +3,37 @@ import { useNavigate } from 'react-router-dom';
 import initialNote from '../../../images/initial note.jpg';
 import answers from '../../../answers/answers'
 
-function ReturnOfTheCodeKiller({moveOnStoryPart, changePart}) {
+function ReturnOfTheCodeKiller({ moveOnStoryPart, changePart, getUserInfo, displayTimer }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    moveOnStoryPart(window.location.pathname);
+    changePart("Part 2");
+    getUserInfo();
+    displayTimer(true);
+  }, []);
 
-      useEffect(() => {
-        window.scrollTo(0, 0);
-        moveOnStoryPart(window.location.pathname);
-        changePart("Part 2");
-      }, []);
 
-      let navigate = useNavigate();
+  let navigate = useNavigate();
 
-    const [answer, setAnswer] = useState('')
-    const [hint, setHint] = useState('')
+  const [answer, setAnswer] = useState("");
+  const [hint, setHint] = useState("");
 
-    function checkAnswer(event) {
-      event.preventDefault();
-      const receivedAnswer = answer.toLowerCase().trim();
-      if (
-        receivedAnswer === answers.returnOfCodeKiller ||
-        receivedAnswer.includes(answers.returnOfCodeKiller)
-      ) {
-        navigate("../stagedoor");
-      } else {
-        setHint("Nope, that's not correct, try again!");
-        setTimeout(() => {
-          setHint("");
-          setAnswer("");
-        }, 2000);
-      }
+  function checkAnswer(event) {
+    event.preventDefault();
+    const receivedAnswer = answer.toLowerCase().trim();
+    if (
+      receivedAnswer === answers.returnOfCodeKiller ||
+      receivedAnswer.includes(answers.returnOfCodeKiller)
+    ) {
+      navigate("../stagedoor");
+    } else {
+      setHint("Nope, that's not correct, try again!");
+      setTimeout(() => {
+        setHint("");
+        setAnswer("");
+      }, 2000);
     }
+  }
 
   return (
     <div className="page">
@@ -41,7 +43,7 @@ function ReturnOfTheCodeKiller({moveOnStoryPart, changePart}) {
         discovered. You've had a relatively quiet time of it since then. Oh
         sure, there have been a few dead bodies turn up in the meantime, but
         they've been straightforward; tragic, obviously, but no mystery to them.
-        Gang violence, domestic violence, traffic accidents. Your standard,
+        Gang violence, domestic disputes, traffic accidents. Your standard,
         run-of-the-mill, it's-obvious-who-dunnit deaths.{" "}
       </p>
       <p>

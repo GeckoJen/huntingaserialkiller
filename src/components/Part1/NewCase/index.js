@@ -4,16 +4,14 @@ import { useNavigate } from "react-router-dom";
 import answers from '../../../answers/answers';
 import crimeScene from '../../../images/crimescene.jpg'
 
-function NewCase({moveOnStoryPart, changePart, updateUser}) {
+function NewCase({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
    
   useEffect(() => {
     window.scrollTo(0, 0);
-    moveOnStoryPart(window.location.pathname);
     changePart("Part 1");
-    const currentDate = new Date();
-    const startTimeTimestamp = currentDate.getTime();
-    console.log({ startTimeTimestamp });
-    updateUser("start_time", startTimeTimestamp);
+    moveOnStoryPart(window.location.pathname);
+    getUserInfo();
+    displayTimer(true);
   }, []);
 
       

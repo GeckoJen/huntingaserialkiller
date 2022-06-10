@@ -3,12 +3,14 @@ import radioCrypticClue from '../../../images/radiocrypticclue.png';
 import answers from "../../../answers/answers";
 import { useNavigate } from "react-router-dom";
 
-function GoingHome({moveOnStoryPart, changePart}) {
+function GoingHome({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
 
      useEffect(() => {
        window.scrollTo(0, 0);
        moveOnStoryPart(window.location.pathname);
        changePart("Part 1");
+       getUserInfo();
+       displayTimer(true);
      }, []);
 
            let navigate = useNavigate();

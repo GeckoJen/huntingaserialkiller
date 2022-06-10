@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./theEnd.css";
 
-function TheEnd({changePart,  getUserInfo }) {
-
-
+function TheEnd({ changePart, getUserInfo, resetDataForNewPart }) {
   useEffect(() => {
     window.scrollTo(0, 0);
-    changePart("Part 1");
-    calculateFinalData();
-  }, []);
+    changePart("Congratulations, Detective");
+    getUserInfo();
 
-  
-  const [timeTaken, setTimeTaken] = useState({ hours: 0, minutes: 0, seconds: 0 })
-  
-  const [hintsUsed, setHintsUsed] = useState({nudges: 0, helps: 0, answers: 0})
+    
+     }, []);
+
+  const [timeTaken, setTimeTaken] = useState();
+
+  const [hintsUsed, setHintsUsed] = useState({
+    nudges: 0,
+    helps: 0,
+    answers: 0,
+  });
 
   async function calculateFinalData() {
     const results = await getUserInfo();
-    const user = results.payload[0]
-    console.log(user);
-    
-  const startTime = Number(user.start_time);
-  const endTime = Number(user.end_time);
-  const lengthOfTime = Math.ceil((endTime - startTime) / 1000);
+    const user = results.payload[0];
+    // console.log(user)
+    // console.log(JSON.parse(user.part1_hints));
+    // console.log(user.part1_time)
+    setTimeTaken(user.part1_time)
+    setHintsUsed(JSON.parse(user.part1_hints));
+  }
 
-    setTimeTaken({hours: Math.floor(lengthOfTime / 3600), minutes: Math.floor(lengthOfTime / 60), seconds: Math.floor(lengthOfTime % 60)})
-  
-setHintsUsed({nudges: user.nudges, helps: user.helps, answers: user.answers})
+     calculateFinalData();
 
-}
-  
+
   return (
     <div className="page">
       <h2>The End. For Now...</h2>
@@ -41,16 +43,34 @@ setHintsUsed({nudges: user.nudges, helps: user.helps, answers: user.answers})
       <p className="centreText">But the Code Killer is sure to return. </p>
       <p className="centreText">Will you be able to catch him next time? </p>
       <div className="hintsSummary">
-        <h3>Hints used in Part 1:</h3>
-        <h4>Nudges: {hintsUsed.nudges}</h4>
-        <h4>Helps: {hintsUsed.helps}</h4>
-        <h4>Answers: {hintsUsed.answers}</h4>
-        <h3>Time taken to complete Part 1:</h3>
-        <h4>
-          {timeTaken.hours}h {timeTaken.minutes}m {timeTaken.seconds}s
-        </h4>
+        <h3>Part 1 Summary</h3>
+        <h4>Time taken:</h4>
+        <table>
+          <tbody>
+            <tr>
+              <td>{timeTaken}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Hints used:</h4>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="column">Nudges</th>
+              <th scope="column">Helps</th>
+              <th scope="column">Answers</th>
+            </tr>
+            <tr>
+              <td>{hintsUsed.nudges}</td>
+              <td>{hintsUsed.helps}</td>
+              <td> {hintsUsed.answers}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <button>Continue to Part 2</button>
+      <Link to="/returnofthecodekiller">
+        <button onClick={resetDataForNewPart}>Continue to Part 2</button>
+      </Link>
     </div>
   );
 }

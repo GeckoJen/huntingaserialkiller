@@ -4,12 +4,14 @@ import answers from "../../../answers/answers";
 import plantsImage from '../../../images/topiary quote wall.jpg'
 import "./insideTheTheatre.css";
 
-function InsideTheTheatre({ moveOnStoryPart, changePart }) {
+function InsideTheTheatre({ moveOnStoryPart, changePart, getUserInfo, displayTimer }) {
 
     useEffect(() => {
       window.scrollTo(0, 0);
       moveOnStoryPart(window.location.pathname);
       changePart("Part 2");
+          getUserInfo();
+          displayTimer(true);
     }, []);
 
     let navigate = useNavigate();
