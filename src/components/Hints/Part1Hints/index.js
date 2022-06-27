@@ -17,12 +17,22 @@ function Part1Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button
+            disabled={false}
+            onClick={(e) =>
+              recordHints(e.target, Object.values(storyPartReached)[0])
+            }
+          >
             Nudge
           </button>
           <p>Look closely at the police caution tape</p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button
+            disabled={false}
+            onClick={(e) =>
+              recordHints(e.target, Object.values(storyPartReached)[0])
+            }
+          >
             Help
           </button>
           <p>
@@ -30,7 +40,12 @@ function Part1Hints({ storyPartReached, recordHints }) {
             some that are different from the others?
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button
+            disabled={false}
+            onClick={(e) =>
+              recordHints(e.target, Object.values(storyPartReached)[0])
+            }
+          >
             Answer
           </button>
           <p>clap once</p>
@@ -49,7 +64,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
               </button>
             </Link>
           </div>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -57,7 +72,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
             the code panel.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -66,7 +81,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
             circle containing number I on top of the box. The first digit of the
             code is in the square box above the white dot - so a number 1.
           </p>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>18039</p>
@@ -85,24 +100,24 @@ function Part1Hints({ storyPartReached, recordHints }) {
               </button>
             </Link>
           </div>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>Notice the strange punctuation</p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
             If you ignore the words you are left with a series of dots, dashes
             and hashes. Could these be concealing a secret message?
           </p>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>
             The whole message (written in Morse Code with # indicating the end
-            of a word) reads:<br></br>"The next murder will be at 37 Ark Street"{" "}
+            of a letter) reads:<br></br>"The next murder will be at 37 Ark Street"{" "}
             <br></br>
             The answer therefore is: "37 Ark Street"
           </p>
@@ -121,18 +136,18 @@ function Part1Hints({ storyPartReached, recordHints }) {
               </button>
             </Link>
           </div>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>Look at the shutters</p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
             When closed, the shutters form a 3x3 grid, with one panel shaded.
           </p>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>945783</p>
@@ -151,7 +166,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
               </button>
             </Link>
           </div>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -159,11 +174,11 @@ function Part1Hints({ storyPartReached, recordHints }) {
             route
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>The first two moves are down right</p>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>
@@ -184,7 +199,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
               </button>
             </Link>
           </div>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -192,7 +207,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
             Look at the numbers for a clue as to how to do it.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -201,7 +216,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
             row 2 etc. Now you should just be able to read across each line to
             find the message.
           </p>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>See you at home detective</p>
@@ -220,7 +235,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
               </button>
             </Link>
           </div>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -228,14 +243,14 @@ function Part1Hints({ storyPartReached, recordHints }) {
             like you."
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
             If you take the beginning letter of each odd word in the riddle, and
             put them together, what do you come up with?
           </p>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>Code Killer</p>
@@ -254,7 +269,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
               </button>
             </Link>
           </div>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -262,7 +277,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
             What do you notice about the answers?
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -270,7 +285,7 @@ function Part1Hints({ storyPartReached, recordHints }) {
             up, down, left and right from a central point, can you work out how
             that might relate to a code on the keypad?
           </p>
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>6482</p>

@@ -5,36 +5,55 @@ import Part2Hints from "./Part2Hints";
 import Part3Hints from "./Part3Hints";
 
 function Hints({ recordHints, getUserInfo, displayTimer }) {
-  const initialStoryPartReached = {
-    newcase: false,
-    atthecrimescene: false,
-    insidethebox: false,
-    thenextcrimescene: false,
-    insidethehouse: false,
-    thenextbody: false,
-    goinghome: false,
-    thecodekiller: false,
-    returnofthecodekiller: false,
-    stagedoor: false,
-    insidethetheatre: false,
-    beneaththetrapdoor: false,
+
+  const storyParts = {
+    newcase: 11,
+    atthecrimescene: 12,
+    insidethebox: 13,
+    thenextcrimescene: 14,
+    insidethehouse: 15,
+    thenextbody: 16,
+    goinghome: 17,
+    thecodekiller: 18,
+    returnofthecodekiller: 21,
+    stagedoor: 22,
+    insidethetheatre: 23,
+    beneaththetrapdoor: 24,
+    theboxopens: 25,
+    friarsroad: 26,
+    insidefriarsroad: 27,
+    inthelivingroom: 28,
+    inthegarden: 29,
+    atthehospital: 210,
+    part3: 31,
+    thevictims: 32,
+    calumhoddle: 33,
+    decodingthemotive: 34,
+    motiverevealed: 35,
+    codekilleridentity: 36,
+    itsabomb: 37,
+    grandfinale: 38,
   };
 
+  
+
   const [storyPartReached, setStoryPartReached] = useState(
-    initialStoryPartReached
+    {}
   );
 
   useEffect(() => {
     async function getCurrentPage() {
       const data = await getUserInfo();
       const currentPage = data.payload[0].current_page;
+      console.log(currentPage)
       setStoryPartReached({
-        ...initialStoryPartReached,
-        [currentPage]: true,
+        [currentPage]: storyParts[currentPage],
       });
+      
     }
     getCurrentPage();
-     displayTimer(true);
+    displayTimer(true);
+
   }, []);
 
   return (

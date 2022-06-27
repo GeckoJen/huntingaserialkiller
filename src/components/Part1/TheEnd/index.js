@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./theEnd.css";
 
-function TheEnd({ changePart, getUserInfo, resetDataForNewPart }) {
+function TheEnd({ changePart, getUserInfo, resetDataForNewPart, moveOnStoryPart }) {
   useEffect(() => {
     window.scrollTo(0, 0);
     changePart("Congratulations, Detective");
     getUserInfo();
-
+moveOnStoryPart('/');
     
      }, []);
 
@@ -22,9 +22,6 @@ function TheEnd({ changePart, getUserInfo, resetDataForNewPart }) {
   async function calculateFinalData() {
     const results = await getUserInfo();
     const user = results.payload[0];
-    // console.log(user)
-    // console.log(JSON.parse(user.part1_hints));
-    // console.log(user.part1_time)
     setTimeTaken(user.part1_time)
     setHintsUsed(JSON.parse(user.part1_hints));
   }

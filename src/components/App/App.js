@@ -30,10 +30,21 @@ import ATwistInTheTale from "../Part2/ATwistInTheTale";
 import AtTheHospital from "../Part2/AtTheHospital";
 import CodeKillerRevealed from "../Part2/CodeKillerRevealed";
 import EndOfPart2 from "../Part2/EndOfPart2";
-
+import TheAftermath from "../Part3/TheAftermath";
+import TheVictims from "../Part3/TheVictims";
+import CalumHoddle from "../Part3/CalumHoddle";
+import DecodingTheMotive from "../Part3/DecodingTheMotive";
+import MotiveRevealed from "../Part3/MotiveRevealed";
+import CodeKillerIdentity from "../Part3/CodeKillerIdentity";
+import ItsABomb from "../Part3/ItsABomb";
+import Kaboom from "../Part3/Kaboom";
+import GrandFinale from "../Part3/GrandFinale";
+import Finish from "../Part3/Finish";
+import EndOfPart3 from "../Part3/EndOfPart3";
+import Stats from "../Stats";
 
 function App() {
-  // const url = `http://localhost:3000/codekiller`;
+  // const url = `http://localhost:3001/codekiller`;
   const url = `https://escaperoomsdata.herokuapp.com/codekiller`;
 
   const [part, setPart] = useState("Welcome, Detective");
@@ -58,7 +69,7 @@ function App() {
   }, 1000);
 
   async function updateUser(columnName, info) {
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("codekillerUserId");
     const data = { column: columnName, update: info };
 
     if (data.column === "start_time" && startTime === "0") {
@@ -83,8 +94,8 @@ function App() {
   }
 
   async function getUserInfo() {
-    if (localStorage.userId) {
-      const userId = localStorage.getItem("userId");
+    if (localStorage.codekillerUserId) {
+      const userId = localStorage.getItem("codekillerUserId");
       const response = await fetch(`${url}/${userId}`, {
         method: "GET",
         headers: {
@@ -93,7 +104,7 @@ function App() {
       });
       const data = await response.json();
       setStartTime(data.payload[0].start_time);
-
+setCurrentPuzzle(data.payload[0].current_page)
       return data;
     }
   }
@@ -108,23 +119,36 @@ function App() {
     getUserInfo();
   }, []);
 
-  async function recordHints(button) {
+  async function recordHints(button, puzzleNumber) {
     if (button.disabled === false) {
-      if (button.innerText === "Nudge") {
+      if (
+        button.innerText === "Nudge" &&
+        !localStorage[`Nudge${puzzleNumber}`]
+      ) {
         await updateUser("nudges", "plus 1");
-      } else if (button.innerText === "Help") {
+      } else if (
+        button.innerText === "Help" &&
+        !localStorage[`Help${puzzleNumber}`]
+      ) {
         await updateUser("helps", "plus 1");
-      } else if (button.innerText === "Answer") {
+      } else if (
+        button.innerText === "Answer" &&
+        !localStorage[`Answer${puzzleNumber}`]
+      ) {
         await updateUser("answers", "plus 1");
       }
+      localStorage.setItem(`${button.innerText}${puzzleNumber}`, true);
       button.nextSibling.style.display = "block";
       button.disabled = true;
     }
   }
 
+  const [currentPuzzle, setCurrentPuzzle] = useState("");
+
   async function moveOnStoryPart(pageName) {
     const pageReached = pageName.slice(1);
     await updateUser("current_page", pageReached);
+    setCurrentPuzzle(pageReached);
   }
 
   async function storePartData(partNumber) {
@@ -146,7 +170,7 @@ function App() {
   }
 
   async function createUser() {
-    const data = { userId: localStorage.getItem("userId") };
+    const data = { userId: localStorage.getItem("codekillerUserId") };
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -159,12 +183,12 @@ function App() {
 
   async function resetDataForNewPart() {
     let userId;
-    if (!localStorage.userId) {
+    if (!localStorage.codekillerUserId) {
       userId = uuidv4();
-      localStorage.setItem("userId", userId);
+      localStorage.setItem("codekillerUserId", userId);
       createUser();
     } else {
-      userId = localStorage.getItem("userId");
+      userId = localStorage.getItem("codekillerUserId");
     }
 
     const data = { column: "start_time", update: new Date().getTime() };
@@ -184,7 +208,12 @@ function App() {
 
   return (
     <div>
-      <Navbar part={part} timeElapsed={timeElapsed} showTimer={showTimer} />
+      <Navbar
+        part={part}
+        timeElapsed={timeElapsed}
+        showTimer={showTimer}
+        currentPuzzle={currentPuzzle}
+      />
       <div className="App">
         <Routes>
           <Route
@@ -197,6 +226,20 @@ function App() {
                 displayTimer={displayTimer}
                 createUser={createUser}
                 resetDataForNewPart={resetDataForNewPart}
+                currentPuzzle={currentPuzzle}
+                moveOnStoryPart={moveOnStoryPart}
+              />
+            }
+          />
+          <Route
+            path="stats"
+            element={
+              <Stats
+                url={url}
+                currentPuzzle={currentPuzzle}
+                resetDataForNewPart={resetDataForNewPart}
+                changePart={changePart}
+                part={part}
               />
             }
           />
@@ -295,6 +338,7 @@ function App() {
             element={
               <TheEnd
                 changePart={changePart}
+                moveOnStoryPart={moveOnStoryPart}
                 getUserInfo={getUserInfo}
                 displayTimer={displayTimer}
                 storePartData={storePartData}
@@ -459,6 +503,135 @@ function App() {
                 getUserInfo={getUserInfo}
                 displayTimer={displayTimer}
                 storePartData={storePartData}
+                resetDataForNewPart={resetDataForNewPart}
+              />
+            }
+          />
+
+          <Route
+            path="part3"
+            element={
+              <TheAftermath
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="thevictims"
+            element={
+              <TheVictims
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="calumhoddle"
+            element={
+              <CalumHoddle
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="decodingthemotive"
+            element={
+              <DecodingTheMotive
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="motiverevealed"
+            element={
+              <MotiveRevealed
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="codekilleridentity"
+            element={
+              <CodeKillerIdentity
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+
+          <Route
+            path="itsabomb"
+            element={
+              <ItsABomb
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="kaboom"
+            element={
+              <Kaboom
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="grandfinale"
+            element={
+              <GrandFinale
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+              />
+            }
+          />
+          <Route
+            path="finish"
+            element={
+              <Finish
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                updateUser={updateUser}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+                storePartData={storePartData}
+              />
+            }
+          />
+          <Route
+            path="endofpart3"
+            element={
+              <EndOfPart3
+                moveOnStoryPart={moveOnStoryPart}
+                changePart={changePart}
+                updateUser={updateUser}
+                getUserInfo={getUserInfo}
+                displayTimer={displayTimer}
+                storePartData={storePartData}
+                resetDataForNewPart={resetDataForNewPart}
               />
             }
           />

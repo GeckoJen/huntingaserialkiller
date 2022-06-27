@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-function EndOfPart2({ changePart, getUserInfo, resetDataForNewPart }) {
+function EndOfPart2({ moveOnStoryPart, changePart, getUserInfo, resetDataForNewPart }) {
   useEffect(() => {
     window.scrollTo(0, 0);
     changePart("Congratulations, Detective");
     getUserInfo();
+    moveOnStoryPart("");
   }, []);
 
   const [timeTaken, setTimeTaken] = useState();

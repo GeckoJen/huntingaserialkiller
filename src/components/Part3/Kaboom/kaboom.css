@@ -1,0 +1,9 @@
+.fillerKaboom {
+  height: 6rem;
+}
+
+.kaboom {
+    max-width: 70%;
+    max-height: 60vh;
+    margin: 0 auto 1rem;
+}

@@ -1,0 +1,271 @@
+.wholeBomb {
+    box-sizing: border-box;
+    background-color: rgb(192, 192, 192);
+    width: 70%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.topSection {
+    width: 100%;
+    padding: 0 1rem 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+.topSection h2 {
+    max-width: 100%;
+padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+}
+
+.midSection {
+    display: flex;
+    justify-content: center;
+}
+
+.innerHousing {
+    background-color: rgb(84, 83, 83);
+    background-image: radial-gradient(rgb(168, 168, 168), rgb(84, 83, 83));
+    padding: 1rem 0;
+    width: 300px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 50px black;
+    margin-left:-12px;
+    margin-right: -12px;
+    z-index: 1;
+    flex-shrink: 0;
+    
+}
+
+.innerHousing:hover {
+cursor: url("../../../images/wirecutter.png") 15 15, auto;
+}
+
+.wire {
+      box-sizing: border-box;
+    width: 105%;
+    height: 30px;
+    margin: 2rem 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: -5px;
+}
+
+.wire:hover {
+box-shadow: 0 0 10px 10px white;
+
+}
+
+.wire:active {
+        border: 2px solid rgb(151, 0, 0);
+          box-shadow: 0 0 10px 10px rgb(151, 0, 0);
+   
+}
+
+.wire1 {
+    background-color: red;
+        background-image: linear-gradient(rgb(62, 62, 62), red , black);
+    transform:  skewY(47deg);
+    transform-origin: 0 0;
+    height: 40px;
+     z-index: 1;
+}
+
+.wire2 {
+    background-color: cyan;
+        background-image: linear-gradient(rgb(62, 62, 62), cyan , black);
+    transform:  skewY(15deg);
+    transform-origin: 0 0;
+    z-index: 5;
+}
+
+.wire3 {
+    background-color: violet;
+        background-image: linear-gradient(rgb(62, 62, 62), violet, black);
+       transform:  skewY(39deg);
+    transform-origin: 0 0;
+    height: 34px;
+    z-index: 3;
+}
+
+.wire4 {
+    background-color: lightgreen;
+        background-image: linear-gradient(rgb(62, 62, 62), lightgreen, black);
+    transform:  skewY(-39deg);
+    transform-origin: 0 0;
+    height: 37px;
+    z-index: 6;
+}
+
+.wire5 {
+    background-color: rgb(0, 0, 254);
+        background-image: linear-gradient(rgb(62, 62, 62), rgb(0, 0, 254), black);
+       transform:  skewY(-15deg);
+    transform-origin: 0 0;
+    z-index: 2;
+}
+
+.wire6 {
+    background-color: yellow;
+    background-image: linear-gradient(rgb(62, 62, 62), yellow, black);
+       transform:  skewY(-47deg);
+    transform-origin: 0 0;
+    height: 40px;
+    z-index: 4;
+}
+
+.leftHandSide {
+  
+    padding: 1rem 0;
+   height: 500px;
+    display: flex;
+    flex-direction: column  ;
+
+}
+
+.bombRow {
+    display: flex;
+    align-items: center;
+    
+}
+
+.LHwire {
+   box-sizing: border-box;
+    width: 70px;
+    height: 20px;
+    margin: 2rem 0.5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: -20px;
+    margin-right: -20px;
+    z-index: 2;
+}
+
+.LHwire1 {
+ background-color: red;
+ background-image: linear-gradient(rgb(62, 62, 62), red, black);
+
+}
+
+.LHwire2 {
+    background-color: cyan;
+    background-image: linear-gradient(rgb(62, 62, 62), cyan, black);
+
+}
+
+.LHwire3 {
+    background-color: violet;
+    background-image: linear-gradient(rgb(62, 62, 62), violet, black);
+
+}
+
+.LHwire4 {
+    background-color: lightgreen;
+    background-image: linear-gradient(rgb(62, 62, 62), lightgreen, black);
+
+}
+
+.LHwire5 {
+    background-color: rgb(0, 0, 254);
+    background-image: linear-gradient(rgb(62, 62, 62), rgb(0,0,254), black);
+
+}
+
+.LHwire6 {
+    background-color: yellow;
+    background-image: linear-gradient(rgb(62, 62, 62), yellow, black);
+
+}
+
+.LHwireconnector {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+border-radius: 50%;
+
+}
+
+.RHwireconnector {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+border-radius: 50%;
+/* margin: 2rem; */
+margin-right: 20px;
+z-index: 0;
+}
+
+.wireNumber {
+    width: 30px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.rightHandSide {
+
+  padding: 1rem 0;
+   height: 500px;
+    display: flex;
+    flex-direction: column  ;
+}
+
+.RHbombRow {
+        display: flex;
+    align-items: center;
+   height: 84px;
+}
+
+.cutWire {
+border: none;
+  visibility: hidden;
+}
+
+
+
+.timerSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.timer {
+max-width: 100%;
+background-color: black;
+color: rgb(0, 255, 0);
+padding: 10px;
+font-size: 2rem;
+font-family: 'Courier New', Courier, monospace;
+}
+
+.detonate {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: red;
+    background-image: radial-gradient(at 60% 40%, white, red, black);
+    border: 3px groove black;
+}
+
+.bottomSection {
+    display: flex;
+    justify-content: center;
+}
+
+.emailHint {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    width: 100%;
+    font-weight: bold;
+    margin: 1rem 0 0;
+    text-align: center;
+}

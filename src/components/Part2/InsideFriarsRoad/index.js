@@ -16,6 +16,8 @@ import upTriangle from "../../../images/triangleup.png";
 import upTriangleChange from "../../../images/triangleupchange.png";
 import downTriangle from "../../../images/triangledown.png";
 import downTriangleChange from "../../../images/triangledownchange.png";
+import allSymbols from '../../../images/sudoku1-9.png';
+import sudokuArrows from '../../../images/sudokuarrows.png'
 import "./insidefriarsroad.css";
 
 function InsideFriarsRoad({
@@ -112,9 +114,18 @@ function InsideFriarsRoad({
       </p>
       <img className="puzzleImage" src={noteImage} alt="Note" />
       <p>
-        Turning the note over, you find a curious triangular puzzle printed on the back.
+        Turning the note over, you find a curious triangular puzzle printed on
+        the back.
       </p>
+
       <div className="triangleSudokuPuzzle">
+        <div className="sudokuInstructions">
+          <p>
+            Click the <span className="query">?</span> to loop through the options.<br></br> Don't repeat symbols on any
+            row or diagonal.
+          </p>
+          <img className="sudokuArrows" src={sudokuArrows} alt="arrows" />
+        </div>
         <div className="sudokuRow">
           <div className="upTriangle changeImg">
             <img className="triangle" src={upTriangleChange} alt="triangle" />
@@ -298,9 +309,12 @@ function InsideFriarsRoad({
             />
           </div>
         </div>
+        <img className="allsymbols" src={allSymbols} alt="all symbols" />
       </div>
       <p>
-        You gaze at the puzzle for a minute, frowning. How is this going to help you work out the 5-digit code to unlock the padlock on the door? You'd better get to work.
+        You gaze at the puzzle for a minute, frowning. How is this going to help
+        you work out the 5-digit code to unlock the padlock on the door? You'd
+        better get to work.
       </p>
       <div className="doorLock">
         <div className="lockBar"></div>
@@ -359,7 +373,9 @@ function InsideFriarsRoad({
 
       <form onSubmit={checkAnswer}>
         <p className="centreText hint">{hint}</p>
-        <p className="centreText">What is the code to unlock the padlock into the living room?</p>
+        <p className="centreText">
+          What is the code to unlock the padlock into the living room?
+        </p>
         <button type="submit">Submit</button>
       </form>
     </div>

@@ -28,7 +28,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -36,7 +36,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             next line begins."
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -45,7 +45,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             hiding? Do the same for the end/beginning of each subsequent line.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>
@@ -68,7 +68,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -76,7 +76,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             oldest to newest.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -85,7 +85,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             two letter code - say them out loud if you're struggling.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>TJSRKCHD</p>
@@ -105,7 +105,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -113,7 +113,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             which to look at them.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -122,7 +122,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             message.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>
@@ -145,7 +145,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -153,7 +153,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             Each row (apart from the first!) relates to the row above it.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -163,7 +163,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             on the row above.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>13112221</p>
@@ -183,7 +183,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -191,7 +191,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             change of perspective is what you need."
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -200,7 +200,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             numbers if you turn the note upside down?
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>
@@ -223,7 +223,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -231,7 +231,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             indicate a series of numbers?
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -239,7 +239,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             them up.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>435162158</p>
@@ -259,7 +259,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -269,7 +269,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             The clue is in the note - 11, 33, 51, 55, 59.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -279,7 +279,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             those numbers into the lock.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>24437</p>
@@ -299,7 +299,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -308,7 +308,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             message?
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -317,7 +317,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             it's not a maths puzzle.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>
@@ -340,7 +340,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -349,7 +349,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             those pieces and build up from there.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <div className="siblingDiv">
@@ -376,7 +376,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </div>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <div className="siblingDiv">
@@ -455,7 +455,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             </Link>
           </div>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Nudge
           </button>
           <p>
@@ -463,7 +463,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             safe? Note that the safe pictures have a tiled background.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Help
           </button>
           <p>
@@ -472,7 +472,7 @@ function Part2Hints({ storyPartReached, recordHints }) {
             sea creatures and land animals. Then count the number of tiles which have those animals on them. For example, there are 3 tiles with sea creatures on.
           </p>
 
-          <button disabled={false} onClick={(e) => recordHints(e.target)}>
+          <button disabled={false} onClick={(e) => recordHints(e.target, Object.values(storyPartReached)[0])}>
             Answer
           </button>
           <p>

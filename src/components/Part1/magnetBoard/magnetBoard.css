@@ -1,7 +1,11 @@
 #magnetGameWhole {
-width: 80%;
+width: 70%;
   /* min-height: 90vh; */
-  margin: 0 auto;
+  margin: 0 auto 2rem;
+  background-color: black;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 .middleSection {
@@ -79,6 +83,7 @@ width: 80%;
   width: 3rem;
   aspect-ratio: 1/1;
   margin: 1rem 0;
+ 
 }
 
 .middleSection {
@@ -92,9 +97,11 @@ width: 80%;
 
 .leftMagnet img {
   transform: rotate(90deg);
+  margin-left: 2rem;
 }
 .rightMagnet img {
   transform: rotate(270deg);
+  margin-right: 2rem;
 }
 
 #magnetGameRestartButton {

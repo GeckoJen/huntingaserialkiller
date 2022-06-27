@@ -31,4 +31,5 @@
 
 .filler {
     height: 2rem;
+    margin-block-end: 0;
 }

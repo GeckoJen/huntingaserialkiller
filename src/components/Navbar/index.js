@@ -5,12 +5,17 @@ import "./navbar.css";
 function Navbar({
   part,
   timeElapsed,
-  showTimer
+  showTimer,
+  
+currentPuzzle
 }) {
 
 
+  const page = window.location.pathname
+
+
   return (
-    <div>
+    <div className="wholeNavBar">
       {showTimer && (
         <div className="partName">
           <h3>{part}</h3>
@@ -22,9 +27,21 @@ function Navbar({
       {!showTimer && <h3 className="partName">{part}</h3>}
 
       <nav className="navbar">
-        <Link to="/">
-          <button className="navbarButton">Home</button>{" "}
+        {page !== "/" && (
+          <Link to="/">
+            <button className="navbarButton">Home</button>{" "}
+          </Link>
+        )}
+
+        <Link to="/stats">
+          <button className="navbarButton">Stats </button>{" "}
         </Link>
+
+        {currentPuzzle && (
+          <Link to={currentPuzzle}>
+            <button className="navbarButton">Current Puzzle</button>{" "}
+          </Link>
+        )}
         <Link to="/hints">
           <button className="navbarButton">Hints</button>{" "}
         </Link>

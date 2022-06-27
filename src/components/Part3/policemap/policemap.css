@@ -1,0 +1,91 @@
+.wholePaper {
+      box-sizing: border-box;
+    width: 70%;
+    background-color: rgb(252, 255, 227);
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+.mapHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapHeader h2 {
+    margin: 0;
+    padding: 1rem;
+}
+
+.compass {
+    width: 10%;
+
+    padding: 1rem;
+}
+
+.mapGrid {
+    width: 90%;
+    margin: 1rem auto;
+     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding-bottom: 1rem; */
+    background-image: url('../../../images/policemap.png');
+    background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: contain; 
+
+}
+
+.gridRow {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+.square {
+    box-sizing: border-box;
+    width: 8.333%;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+   
+}
+
+.square:hover {
+        border: 2px solid rgb(151, 0, 0);
+          box-shadow: 0 0 5px 5px rgb(151, 0, 0);
+   
+}
+
+.square:active {
+        border: 2px solid rgb(151, 0, 0);
+          box-shadow: 0 0 10px 10px rgb(151, 0, 0);
+   
+}
+
+.selected {
+        box-sizing: border-box;
+    width: 8.333%;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+        border: 2px solid rgb(151, 0, 0);
+     box-shadow: 0 0 10px 10px white;
+        background-color: rgba(151, 0, 0, 0.8);
+   
+}
+
+.message {
+ 
+  color: rgb(151, 0, 0);
+  font-size: 1rem;
+  line-height: 1.2rem;
+  text-align: center;
+  width: 100%;
+
+}
+

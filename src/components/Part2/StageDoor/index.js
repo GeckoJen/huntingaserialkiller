@@ -236,9 +236,12 @@ return (
         >
           ^
         </div>
-            </div>
-            <button className="stageDoorEnter" onClick={checkAnswer}>Enter</button>
+      </div>
+      <button className="stageDoorEnter" onClick={checkAnswer}>
+        Enter
+      </button>
     </div>
+    <p className="filler"></p>
     <p className="filler"></p>
   </div>
 );

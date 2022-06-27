@@ -197,17 +197,21 @@ function TheNextScene({moveOnStoryPart, changePart, getUserInfo, displayTimer}) 
         <div className="houseCodePadRow">
           <div className="houseCodeEnter" onClick={checkAnswer}>
             ENTER
-                  </div>
-                  <div className="houseCodeClear" onClick={clearAnswer}>CLEAR</div>
+          </div>
+          <div className="houseCodeClear" onClick={clearAnswer}>
+            CLEAR
+          </div>
         </div>
       </div>
 
       <p className="centreText hint">{hint}</p>
-      <p >
+      <p>
         {" "}
         What code do you need to put in to gain access to the house? Insert the
         code into the panel above and then press enter.
       </p>
+      <p className="filler"></p>
+   
     </div>
   );
 }

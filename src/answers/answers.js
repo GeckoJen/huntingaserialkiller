@@ -17,6 +17,15 @@ const answers = {
   inTheGarden1: "GECIBDFAH",
   inTheGarden2: "GECIHBDFA",
   atTheHospital: "5378",
+  victimList: 
+    "Simon Harrison, aged 47; Jared Federer, aged 53; Mike East, aged 41; Luke Walker, aged 34; Eric Bing, aged 32; Philip Fulton, aged 43" ,
+  stuartTaylor: "ldmft",
+  calumHoddle: "laiue",
+  decodingTheMotive: "i am freeing us from torment",
+  mingvase: "1505-474",
+  policeMap: "37",
+  bombDefusal: "025413",
+  radioFrequency: "253.4",
 };
 
 export default answers;

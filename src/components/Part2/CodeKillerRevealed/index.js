@@ -26,8 +26,11 @@ function CodeKillerRevealed({
        const endtimeTimeStamp = currentDate.getTime();
        await updateUser("end_time", endtimeTimeStamp);
        displayTimer(false);
-       storePartData(2);
-       navigate("../endofpart2");
+      storePartData(2);
+      setTimeout(() => {
+        navigate("../endofpart2");
+      }, 1000)
+       
        
     }
 

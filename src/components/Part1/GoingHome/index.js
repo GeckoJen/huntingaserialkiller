@@ -35,9 +35,10 @@ function GoingHome({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
   return (
     <div className="page">
       <h2>Going Home</h2>
+      <p>"See you at home detective"? That sounds ominous.</p>
       <p>
         Alarmed for the safety of your family, you immediately head to your
-        home. Arriving at a run, you are relieved to find that your house
+        house. Arriving at a run, you are relieved to find that everything
         appears to be quiet and undisturbed. Your family is safe inside. You are
         in the process of preparing to move them to a safe house, when a dark
         van pulls up outside, with a masked figure inside. You decide instead to
@@ -55,7 +56,7 @@ function GoingHome({moveOnStoryPart, changePart, getUserInfo, displayTimer}) {
       </p>
       <img className="puzzleImage" src={radioCrypticClue} alt="cryptic clue" />
       <form onSubmit={checkAnswer}>
-        <p className="centreText"> What is the killer's name?</p>
+        <p className="centreText"> What is the answer to the riddle?</p>
         <input
           type="text"
           value={answer}

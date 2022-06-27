@@ -43,8 +43,8 @@ function BeneathTheTrapDoor({moveOnStoryPart, changePart, getUserInfo, displayTi
       <h2>Beneath the Trap Door</h2>
       <p>
         You make your way to the main theatre auditorium and hunt on the stage
-        for a trap door. You find it, open it, and shine your torch down into the
-        space below.
+        for a trap door. You find it, open it, and shine your torch down into
+        the space below.
       </p>
       <p>
         A body is lying on the floorboards underneath you. It looks like he's
@@ -146,6 +146,7 @@ function BeneathTheTrapDoor({moveOnStoryPart, changePart, getUserInfo, displayTi
       </div>
       <p className="centreText hint">{hint}</p>
       <p className="centreText">What's the code to unlock the box?</p>
+      <p className="filler"></p>
       <p className="filler"></p>
     </div>
   );
