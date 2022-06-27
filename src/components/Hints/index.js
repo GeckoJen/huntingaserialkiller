@@ -45,7 +45,7 @@ function Hints({ recordHints, getUserInfo, displayTimer }) {
     async function getCurrentPage() {
       const data = await getUserInfo();
       const currentPage = data.payload[0].current_page;
-      console.log(currentPage)
+  
       setStoryPartReached({
         [currentPage]: storyParts[currentPage],
       });

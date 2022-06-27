@@ -27,8 +27,7 @@ function GrandFinale({
     const [frequency, dispatch] = useReducer(frequencyReducer, 240.5);
 
     function frequencyReducer(state, action) {
-        console.log(state, action)
-        
+       
         switch (action.type) {
           case "singleIncrement":
             return (Number(state) + 0.1).toFixed(1);

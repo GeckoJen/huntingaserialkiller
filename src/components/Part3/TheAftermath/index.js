@@ -135,7 +135,6 @@ function TheAftermath({
         function checkAnswer(event) {
             event.preventDefault();
             const answerArray = answer.map((victim) => victim.name);
-            console.log(answerArray)
             const receivedAnswer = answerArray.join('; ');
           if (receivedAnswer === answers.victimList) {
             navigate("../thevictims");

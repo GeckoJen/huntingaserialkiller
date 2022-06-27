@@ -72,7 +72,6 @@ function ItsABomb({ moveOnStoryPart, changePart, getUserInfo, displayTimer }) {
   }, 1000);
 
     useEffect(() => {
-        console.log(cutOrder)
         if (cutOrder.join('') === answers.bombDefusal) {
 
             setTimeout(() => {

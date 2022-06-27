@@ -36,7 +36,6 @@ function Stats({part,  url, resetDataForNewPart, changePart, currentPuzzle }) {
         const data = await response.json();
     
         const payload = data.payload[0];
-        console.log(payload)
         
         const userData = [
           {
@@ -62,7 +61,6 @@ function Stats({part,  url, resetDataForNewPart, changePart, currentPuzzle }) {
           },
         ];
         setUserStats(userData);
-        console.log(userData);
     }
     }
     useEffect(() => {

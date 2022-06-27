@@ -113,7 +113,7 @@ function Home({
     await createUser();
     moveOnStoryPart('/');
     displayTimer(false);
-    console.log(localStorage)
+
   }
 
   return (

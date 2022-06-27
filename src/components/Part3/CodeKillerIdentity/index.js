@@ -34,7 +34,6 @@ function CodeKillerIdentity({
     function checkAnswer(event) {
       event.preventDefault();
         const receivedAnswer = squareSelected.join('');
-        console.log(receivedAnswer)
       if (receivedAnswer === answers.policeMap) {
         navigate("../itsabomb");
       } else {
