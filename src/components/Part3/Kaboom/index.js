@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import kaboom from '../../../images/kaboom.png';
 import './kaboom.css';
-import Sound from 'react-sound';
 import explosion from '../../../images/Grenade-SoundBible.com-1891951294.mp3'
 
 function Kaboom({ moveOnStoryPart, changePart, getUserInfo, displayTimer }) {
@@ -14,24 +13,21 @@ function Kaboom({ moveOnStoryPart, changePart, getUserInfo, displayTimer }) {
     displayTimer(true);
   }, []);
 
+  const audio = new Audio(explosion);
+  audio.loop = false;
 
   const [playSound, setPlaySound] = useState(true);
 
   setTimeout(() => {
+    if (playSound) { audio.play() }
     setPlaySound(false);
-  }, 5000);
+  }, 1000);
+
+ 
 
   return (
     <div className="page">
-      {playSound && (
-        <Sound
-          url={explosion}
-          playStatus={Sound.status.PLAYING}
-          volume={100}
-          loop={false}
-          onFinishedPlaying={Sound.status.STOPPED}
-        />
-      )}
+
       <div className="fillerKaboom"></div>
       <img className="kaboom" src={kaboom} alt="kaboom" />
 
